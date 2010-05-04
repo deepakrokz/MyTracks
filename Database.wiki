@@ -1,0 +1,15 @@
+#summary Description of MyTrack's database schema.
+#labels Phase-Implementation
+
+= Tables =
+
+  * *tracks*: contains one entry per track, including statistics about the track
+  * *trackpoints*: contains one entry per point/position of each track
+  * *waypoints*: contains waypoints explicitly added by the user
+
+
+== tracks table ==
+
+== trackpoints table ==
+
+== waypoints table ==

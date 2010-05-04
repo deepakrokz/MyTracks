@@ -1,0 +1,13 @@
+#summary How to use the mytracks recording service from another application.
+#labels Phase-Design
+
+= Introduction =
+
+It is possible to use mytracks from another application, and directly perform actions such as starting/stopping recording of a track and adding waypoints or statistics markers.
+
+It is also possible to read track data directly from mytracks - e.g. to export it to a custom format or destination, or use it for other calculations.
+
+= MyTracks service =
+
+
+= MyTracks database =

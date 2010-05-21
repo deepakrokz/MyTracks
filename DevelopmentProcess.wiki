@@ -169,6 +169,12 @@ adding file changes
 added 1 changesets with 1 changes to 1 files
 }}}
 
+If you need to pull just specific revisions, you can do that with the -r flag:
+
+{{{
+$ hg pull -r7e95bb -u http://X.googlecode.com/hg/
+}}}
+
 If there are any conflicts, you'll need to fix them by using "hg merge" then "hg commit" (see the reference at the bottom of this page for details) - you can also use "hg fetch" which is equivalent to "hg pull -u" plus "hg merge" plus "hg commit" (when necessary).
 
 At this point, *test* the change - make sure it works for you as well as it did for the original author. Some things just can't be caught in code reviews.

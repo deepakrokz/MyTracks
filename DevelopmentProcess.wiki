@@ -22,6 +22,8 @@ The model we've chosen for developing My Tracks is the following:
 
 Even though this may sound complicated, this process makes code reviews easy and allows a lot of people to work on changes in parallel.
 
+Next is an overview of each step, but if you want to really learn mercurial, please look at the references at the bottom of this page.
+
 == Mercurial installation ==
 
 First, make sure you have Mercurial installed by running the command:
@@ -55,7 +57,20 @@ and that's it - you have a local copy of your clone (in this example, in subdire
 
 == Bringing in new changes from the master repository ==
 
-TODO
+The recommended way of bringing changes in from the main repository is the use of "hg fetch":
+
+{{{
+$ hg fetch http://mytracks.googlecode.com/hg/
+}}}
+
+Please note that the fetch command is a Mercurial extension which is equivalent to "hg pull -u" plus "hg merge" plus "hg commit" - for more details please see the references, but this basically means that it will try to merge the incoming changes with your local changes.
+
+If you want to see what will be brought in with the above command before running it, you can use:
+
+{{{
+$ hg incoming
+}}}
+
 
 == Committing changes locally ==
 
@@ -97,24 +112,76 @@ which will open an editor for you to type in a description for these changes (pl
 
 == Pushing changes to your online clone ==
 
-TODO
+Pushing changes to your online clone is incredibly simple:
+
+{{{
+$ hg push
+pushing to https://rdamazio:***@rdamazio-mytracks.googlecode.com/hg/
+searching for changes
+adding changesets
+adding manifests
+adding file changes
+added 1 changesets with 1 changes to 1 files
+}}}
+
+and you're done.
+
+If you want to see what changes you're going to push before you do it, you can also use the following command:
+
+{{{
+$ hg outgoing
+comparing with https://rdamazio:***@rdamazio-mytracks.googlecode.com/hg/
+searching for changes
+changeset:   5:b6fed4f21233
+tag:         tip
+user:        Rodrigo Damazio
+date:        Tue May 05 06:55:53 2009 +0000
+summary:     Added an extra line of output
+}}}
 
 == Requesting a code review ==
 
-TODO
+To request a code review, go into the "Issues" tab of the My Tracks project, click new Issue, select template "Review request", fill out the fields from the template. Someone will then review the code changes and integrate them when ready.
 
 = Maintainer instructions =
 
-TODO
-
-== Doing code reviews ==
-
-TODO
+These are instructions for the My Tracks commiters who will be necessarily doing code reviews and integrating changes into the main repository.
 
 == Merging changes into the main repository ==
 
-TODO
+Main repository maintainers should usually have a local clone of the main repository:
+
+{{{
+hg clone https://user%40google.com:password@mytracks.googlecode.com/hg/ mytracks
+}}}
+
+To integrate changes from a clone http://X.googlecode.com/hg/, first check what will be pulled, then pull them to your local clone:
+
+{{{
+$ hg incoming http://X.googlecode.com/hg/
+<list of diffs>
+$ hg pull -u http://X.googlecode.com/hg/
+pulling from http://X.googlecode.com/hg/
+searching for changes
+adding changesets
+adding manifests
+adding file changes
+added 1 changesets with 1 changes to 1 files
+}}}
+
+If there are any conflicts, you'll need to fix them by using "hg merge" then "hg commit" (see the reference at the bottom of this page for details) - you can also use "hg fetch" which is equivalent to "hg pull -u" plus "hg merge" plus "hg commit" (when necessary).
+
+At this point, *test* the change - make sure it works for you as well as it did for the original author. Some things just can't be caught in code reviews.
+
+Once you know the change is ok, push it up to the main repository:
+{{{
+$ hg push
+}}}
+
+== Making releases ==
+
+Please see [ReleaseProcess].
 
 = References =
 
-TODO
+[http://hgbook.red-bean.com/ Mercurial: The definitive guide]

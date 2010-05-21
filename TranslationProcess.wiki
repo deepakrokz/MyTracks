@@ -1,0 +1,34 @@
+#summary Instructions to translate My Tracks to a new language.
+#labels Phase-Implementation
+
+= Target Users =
+
+This is meant for users who are looking to translate My Tracks to a new language, or update an existing translation.
+
+= Strings files =
+
+Android puts all strings used by the application in XML files in the [http://code.google.com/p/mytracks/source/browse/#hg/MyTracks/res/values res/values directory] - more specifically, the strings.xml and arrays.xml files. To translate it to a new language, you simply make a copy of those files for the language, change all the strings, such as:
+
+{{{
+<string name="start_recording">Record track</string>
+}}}
+
+becomes
+
+{{{
+<string name="start_recording">Gravar trilha</string>
+}}}
+
+for Portuguese.
+
+All strings which are not going to be translated (those marked with "DO NOT TRANSLATE") should be removed from the translated file - Android will find them in the main (English) file.
+
+= Sending changes =
+
+There are basically two ways to do that, depending on your level of expertise: one of them is to send the files back to the My Tracks development team (e.g. by opening a feature request and attaching the files, or e-mailing them to the development mailing list.
+
+If you have some familiarity with version control systems, though, you can read our [DevelopmentProcess development process], then use it for making changes to files in the res subdirectory, and request a regular code review. If you're adding a new language, then your copy of the XML files will go into res/values-XX, where XX is the two-letter code for the language in question, such as "values-de" for German. If the language in question is regionalized, then the format becomes "values-XX-rYY", such as "values-pt-rBR" for Brazilian Portuguese.
+
+= References =
+
+[http://developer.android.com/intl/de/guide/topics/resources/localization.html Localization in Android]

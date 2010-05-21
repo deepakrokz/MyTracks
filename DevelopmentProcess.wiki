@@ -1,0 +1,120 @@
+#summary How to make changes to My Tracks source and have them merged back.
+#labels Featured,Phase-Implementation
+
+= Target users =
+
+This document is for programmers who want to contribute changes to My Tracks. If you just want to request a feature or file a bug, but have someone else work on it, please use the "Issues" tab above.
+
+= Version control =
+
+== Overview ==
+
+My Tracks uses Mercurial, a distributed version control system. What this means is that, even though this page hosts a central repository, there can be many clone repositories with changes of their own, and then some of those can be merged back into the main repository.
+
+The model we've chosen for developing My Tracks is the following:
+  # Each developer creates an google code hosting clone of the main mytracks repository. This clone is hosted on Google servers.
+  # The developer then makes a local clone of his code hosting clone, which is then at his local machine.
+  # The developer writes new code into his local clone and commits it locally
+  # When a change is ready to be integrated back into the main repository, that change is pushed from the developer's local clone to his code hosting clone
+  # He then requests a code review by opening a new issue under "Issues" above, saying which clone has the code to be reviewed, what it's supposed to do, and what are the relevant changesets
+  # The code will be reviewed on the user's clone - if any further changes are suggested, the process repeats from (3)
+  # Once the change is approved, a member of the My Tracks team will merge it back into the main repository
+
+Even though this may sound complicated, this process makes code reviews easy and allows a lot of people to work on changes in parallel.
+
+== Mercurial installation ==
+
+First, make sure you have Mercurial installed by running the command:
+
+{{{
+$ hg version
+Mercurial Distributed SCM (version 1.2)
+
+...
+}}}
+
+== Making a clone of the repository ==
+
+We'll need to create two clones of the main My Tracks repository - one online, and then a local clone of that one.
+
+To create the online clone, click on "Source" above, then on "Create Clone". Give your clone a name, summary and description, then click on "Create repository clone". At that point the online clone is ready.
+
+To create the local clone, click on "Source" tab of your clone page, and then use the checkout command provided there:
+
+{{{
+hg clone https://rdamazio-mytracks.googlecode.com/hg/ rdamazio-mytracks
+}}}
+
+Optionally, you can add your username and password to it (so you don't have to type them in every time):
+
+{{{
+hg clone https://rdamazio:mypassword@rdamazio-mytracks.googlecode.com/hg/ rdamazio-mytracks
+}}}
+
+and that's it - you have a local copy of your clone (in this example, in subdirectory "rdamazio-mytracks") which you can then make changes to.
+
+== Bringing in new changes from the master repository ==
+
+TODO
+
+== Committing changes locally ==
+
+Commiting changes locally is easy - run "hg status" to see the state of your local clone:
+
+{{{
+$ hg status
+?  MyNewFile
+M  MyChangedFile
+!  MyDeletedFile
+}}}
+
+In the above example, it shows one file that it knows nothing about (MyNewFile), one that it knows about but is missing (MyDeletedFile) and one that has had changes made to it.
+
+To add all the previously unknown files and remove any missing files, use the addremove command:
+{{{
+$ hg addremove
+Adding MyNewFile
+Deleting MyDeletedFile
+}}}
+
+hg status then shows the new status:
+
+{{{
+$ hg status
+A  MyNewFile
+M  MyChangedFile
+D  MyDeletedFile
+}}}
+
+If you wish to see what has changed, you can use the "hg diff" command.
+Finally, you can commit the changes with
+
+{{{
+$ hg commit
+}}}
+
+which will open an editor for you to type in a description for these changes (please use something descriptive - "fixing bug" is not good). Optionally, you can specify filenames to hg commit in order to commit only part of your current changes.
+
+== Pushing changes to your online clone ==
+
+TODO
+
+== Requesting a code review ==
+
+TODO
+
+= Maintainer instructions =
+
+TODO
+
+== Doing code reviews ==
+
+TODO
+
+== Merging changes into the main repository ==
+
+TODO
+
+= References =
+
+TODO

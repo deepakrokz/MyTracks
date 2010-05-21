@@ -1,0 +1,40 @@
+#summary How to create new releases of My Tracks.
+#labels Phase-Deploy
+
+= Target users =
+
+This document is meant for My Tracks team members who want to create a new version of My Tracks to be posted on the Android Market.
+
+= Steps =
+
+== Repository clone ==
+
+If you don't have it already, make a clean clone of the repository:
+
+{{{
+$ hg clone https://user%40google.com:password@mytracks.googlecode.com/hg/ mytracks
+}}}
+
+== Testing ==
+
+This is the most important step - open up eclipse, import the projects from the above clone, and test all its features in at least a few different versions of Android (using emulators is ok). Specifically, we want to test primarily in: 1.5, 1.6, 2.1 and 2.2.
+
+Another part of testing is to run the My Tracks unit test - import the test project from the clone above, and make it run the tests as android tests (that will bring up an emulator to run them, or you can run them on a real device which is faster).
+
+== Fixes ==
+
+If you need to fix bugs that you found during the above testing, the recommended way is the standard [DevelopmentProcess development process], but it's generally ok to commit *small* fixes directly to the main repository. A code review is still highly recommended.
+
+== Release tagging ==
+
+Once you know that the state of the repository is exactly what you want to release, tag it with the release version:
+
+{{{
+$ hg tag v1.0.13
+}}}
+
+== APK generation ==
+
+To generate a release APK, from Eclipse, right-click on the MyTracks project, choose Export, Android Application, then follow the steps by selecting the keystore and typing in its password (if you're releasing, you probably know where to find those).
+
+After this, the generated APK can be uploaded directly to the Android Market.

@@ -177,6 +177,14 @@ $ hg pull -r7e95bb -u http://X.googlecode.com/hg/
 
 If there are any conflicts, you'll need to fix them by using "hg merge" then "hg commit" (see the reference at the bottom of this page for details) - you can also use "hg fetch" which is equivalent to "hg pull -u" plus "hg merge" plus "hg commit" (when necessary).
 
+It is important to understand that this pulls revision "7e95bb" and ALL the other remote revisions that happened before that one - in other words, it "merges" up to that revision. If you need to pull a single revision from the middle of the repository, you want to use the "transplant" extension:
+
+{{{
+$ hg transplant -s http://X.googlecode.com/hg/ 7e95bb
+searching for changes
+applying 7e95bb
+}}}
+
 At this point, *test* the change - make sure it works for you as well as it did for the original author. Some things just can't be caught in code reviews.
 
 Once you know the change is ok, push it up to the main repository:

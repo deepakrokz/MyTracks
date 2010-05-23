@@ -39,7 +39,7 @@ Mercurial Distributed SCM (version 1.2)
 
 We'll need to create two clones of the main My Tracks repository - one online, and then a local clone of that one.
 
-To create the online clone, click on "Source" above, then on "Create Clone". Give your clone a name, summary and description, then click on "Create repository clone". At that point the online clone is ready.
+To create the online clone, click on "Source" above, then on "Create Clone". Give your clone a name, summary and description, then click on "Create repository clone". At that point the online clone is ready. If you plan to have your code reviewed, then you also want to go into "Administer", "Source", and check "Allow non-members to review code".
 
 To create the local clone, click on "Source" tab of your clone page, and then use the checkout command provided there:
 

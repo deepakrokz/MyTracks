@@ -196,6 +196,10 @@ $ hg push
 
 Please see [ReleaseProcess].
 
+= Coding style =
+
+When writing code for My Tracks, please keep your coding style consistent with the one in the rest of the app. There's an XML style definition in the source tree (mytracks-style.xml) section which can be imported into Eclipse, but the basics are: 80 columns, no tabs, indent 2 spaces inside blocks, indent 4 spaces when wrapping a line.
+
 = References =
 
 [http://hgbook.red-bean.com/ Mercurial: The definitive guide]

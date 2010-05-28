@@ -108,7 +108,9 @@ Finally, you can commit the changes with
 $ hg commit
 }}}
 
-which will open an editor for you to type in a description for these changes (please use something descriptive - "fixing bug" is not good). Optionally, you can specify filenames to hg commit in order to commit only part of your current changes.
+which will open an editor for you to type in a description for these changes. Optionally, you can specify filenames to hg commit in order to commit only part of your current changes.
+
+*IMPORTANT*: When your change is pulled into the main My Tracks source, the change description that you entered here will show up as changes in the main mytracks source, so please use a meaninful description - "fixing bug", "making changes", etc. are not ok, please instead use something like "fixing GPX import bug caused by null pointer", "adding Russian translation", etc. so that it makes sense in the context of mytracks as a whole, not just your clone.
 
 == Pushing changes to your online clone ==
 

@@ -35,6 +35,13 @@ Mercurial Distributed SCM (version 1.2)
 ...
 }}}
 
+If you don't want your hostname and username to be made public, you can change how you're identified in commits you make by editing your ~/.hgrc file:
+
+{{{
+[ui]
+username = John Doe
+}}}
+
 == Making a clone of the repository ==
 
 We'll need to create two clones of the main My Tracks repository - one online, and then a local clone of that one.

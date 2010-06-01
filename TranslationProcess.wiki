@@ -7,7 +7,7 @@ This is meant for users who are looking to translate My Tracks to a new language
 
 = Strings files =
 
-Android puts all strings used by the application in XML files in the [http://code.google.com/p/mytracks/source/browse/#hg/MyTracks/res/values res/values directory] - more specifically, the strings.xml and arrays.xml files. To translate it to a new language, you simply make a copy of those files for the language, change all the strings, such as:
+Android puts all strings used by the application in XML files in the [http://code.google.com/p/mytracks/source/browse/#hg/MyTracks/res/values res/values directory] - more specifically, the strings.xml and arrays.xml files. To translate it to a new language, you simply make a copy of those two files for the language, change all the strings, such as:
 
 {{{
 <string name="start_recording">Record track</string>
@@ -21,7 +21,7 @@ becomes
 
 for Portuguese.
 
-All strings which are not going to be translated (those marked with "DO NOT TRANSLATE") should be removed from the translated file - Android will find them in the main (English) file.
+All strings which are not going to be translated (those marked with "DO NOT TRANSLATE") should be removed from the translated file - Android will find them in the main (English) file.  Do not copy the colors.xlm in the res/values directory.
 
 = Sending changes =
 

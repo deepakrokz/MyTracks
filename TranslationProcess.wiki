@@ -21,7 +21,7 @@ becomes
 
 for Portuguese.
 
-All strings which are not going to be translated (those marked with "DO NOT TRANSLATE") should be removed from the translated file - Android will find them in the main (English) file.  Do not copy the colors.xlm in the res/values directory.
+All strings which are not going to be translated (those marked with "DO NOT TRANSLATE") should be removed from the translated file - Android will find them in the main (English) file.  Do not copy the colors.xml in the res/values directory.
 
 = Sending changes =
 

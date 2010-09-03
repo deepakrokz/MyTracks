@@ -1,0 +1,14 @@
+= Introduction to Android Logging =
+
+If My Tracks fails in any way it is important to capture the system log.  Every Android phone has a circular log of system events.  All applications can put messages in this log.  My Tracks tries to log important events like crashes in this log.  If you can capture a log of My Tracks when it screws up it can help us improve the product.
+
+= How to Provide Useful Logs =
+
+If you have experienced an error with the app the best way to tell us is to send a log of your device to mytracks-support@google.com or post it to the appropriate issue on this site.  If you are technically inclined you can use adb logcat with a USB cord. The much easier approach is to use a log collector app on the device. 
+We recommend the following app for easy log collection: 
+*Log Collector*
+
+Without a log it is near impossible for us to debug your errors.  Since the system log is circular it is very important that you catch an error shortly after it occurs otherwise the data will be overwritten by new logging messages.
+
+Sorry for anyone who is experiencing errors.
+Please help us make the app even better by sending us detailed logs.

@@ -1,3 +1,4 @@
+#summary How to report errors
 = Introduction to Android Logging =
 
 If My Tracks fails in any way it is important to capture the system log.  Every Android phone has a circular log of system events.  All applications can put messages in this log.  My Tracks tries to log important events like crashes in this log.  If you can capture a log of My Tracks when it screws up it can help us improve the product.

@@ -152,6 +152,21 @@ summary:     Added an extra line of output
 
 To request a code review, go into the "Issues" tab of the My Tracks project, click new Issue, select template "Review request", fill out the fields from the template. Someone will then review the code changes and integrate them when ready.
 
+= Eclipse setup =
+
+My Tracks is primarily developed using [http://www.eclipse.org Eclipse], and uses the Android plugin which should be installed as described [http://developer.android.com/sdk/eclipse-adt.html#installing here].
+
+Once you have the code in your local clone, use File > Import > General > Existing Projects into Workspace, then select the MyTracks directory. Repeat this for the MyTracksTest directory, and you should have both projects on your workspace.
+
+*HACK*: If Eclipse complains about a missing gen or res directory, do the following steps:
+  # Disable auto-building (uncheck Project > Build Automatically)
+  # Clean the project without building (Project > Clean, uncheck Start a Build Immediately)
+  # Create an empty directory called "gen" in both projects, and an empty directory called "res" in MyTracksTest
+  # Build normally
+
+Also, when writing code for My Tracks, please keep your coding style consistent with the one in the rest of the app. There's an XML style definition in the source tree (mytracks-style.xml) section which can be imported into Eclipse (Preferences > Java > Code Style > Formatter, Import). You should also import the import-order definition (Preferences > Java > Code Style > Organize Imports, Import) from the same directory.
+
+
 = Maintainer instructions =
 
 These are instructions for the My Tracks commiters who will be necessarily doing code reviews and integrating changes into the main repository.
@@ -204,10 +219,6 @@ $ hg push
 == Making releases ==
 
 Please see [ReleaseProcess].
-
-= Coding style =
-
-When writing code for My Tracks, please keep your coding style consistent with the one in the rest of the app. There's an XML style definition in the source tree (mytracks-style.xml) section which can be imported into Eclipse, but the basics are: 80 columns, no tabs, indent 2 spaces inside blocks, indent 4 spaces when wrapping a line. Likewise, there's an import order file which can be opened in Eclipse, which is basically: com.*, then android.*, then java.*, then javax.*, then org.*.
 
 = References =
 

@@ -158,6 +158,10 @@ My Tracks is primarily developed using [http://www.eclipse.org Eclipse], and use
 
 Once you have the code in your local clone, use File > Import > General > Existing Projects into Workspace, then select the MyTracks directory. Repeat this for the MyTracksTest directory, and you should have both projects on your workspace.
 
+To properly compile and run tests, you'll also need to set two Eclipse variables, which can be set under Eclipse Preferences > Java > Build path > Classpath variables:
+  * *ANDROID_SDK* - make this variable point to the Android SDK's root directory (the one inside which is the platforms directory)
+  * *MYTRACKS_BIN* - make this variable point to the MyTracks/bin directory in your clone
+
 *HACK*: If Eclipse complains about a missing gen or res directory, do the following steps:
   # Disable auto-building (uncheck Project > Build Automatically)
   # Clean the project without building (Project > Clean, uncheck Start a Build Immediately)

@@ -7,7 +7,60 @@ It is possible to use mytracks from another application, and directly perform ac
 
 It is also possible to read track data directly from mytracks - e.g. to export it to a custom format or destination, or use it for other calculations.
 
-= MyTracks service =
+= MyTracks Library =
 
+All of the code needed to talk to My Tracks is in the MyTracksLib project.
+TODO: Document how to import this project into other projects.
 
-= MyTracks database =
+= MyTracks Service =
+
+Third party applications can make calls on the My Tracks service to start or stop recording.  See the [http://code.google.com/p/mytracks/source/browse/MyTracksLib/src/com/google/android/apps/mytracks/services/ITrackRecordingService.aidl aidl] to see the full interface.
+
+To use this class you must declare the following permissions in your manifest:
+{{{
+<uses-permission android:name="com.google.android.apps.mytracks.WRITE_TRACK_DATA" />
+}}}
+
+Here is a code sample for getting a reference to the My Tracks service:
+{{{
+Intent intent = new Intent();
+intent.setComponent(new ComponentName(
+        getString(R.string.mytracks_service_package),
+        getString(R.string.mytracks_service_class)));
+if (!bindService(intent, this, 0)) {
+  Log.e(TAG, "Couldn't bind to service.");
+  return;
+}
+}}}
+{{{
+private ITrackRecordingService mytracksService;
+
+@Override
+public void onServiceConnected(ComponentName name, IBinder service) {
+  synchronized (this) {
+    mytracksService = ITrackRecordingService.Stub.asInterface(service);
+  }
+}
+}}}
+
+= MyTracks Provider =
+
+To use this class you must declare the following permissions in your manifest:
+{{{
+<uses-permission android:name="com.google.android.apps.mytracks.READ_TRACK_DATA" />
+<uses-permission android:name="com.google.android.apps.mytracks.WRITE_TRACK_DATA" />
+}}}
+
+Example code:
+{{{
+private MyTracksProviderUtils utils;
+
+@Override
+public void onCreate() {
+  super.onCreate();
+    ...
+  utils = new MyTracksProviderUtilsImpl(this.getContentResolver());
+}
+}}}
+
+= My Tracks Notifications =

@@ -10,7 +10,11 @@ It is also possible to read track data directly from mytracks - e.g. to export i
 = MyTracks Library =
 
 All of the code needed to talk to My Tracks is in the MyTracksLib project.
-TODO: Document how to import this project into other projects.
+== Import My Tracks Projects ==
+File -> Import ... -> Select the directory that contains all of the My Tracks code.
+
+== Import MyTracksLib into your project ==
+Select your project, open properties then select the Android property on the left click the Add button and choose MyTracksLib in the window that pops up.
 
 = MyTracks Service =
 

@@ -17,7 +17,7 @@ $ hg clone https://user%40google.com:password@mytracks.googlecode.com/hg/ mytrac
 
 == Testing ==
 
-This is the most important step - open up eclipse, import the projects from the above clone, and test its features in at least a few different versions of Android (using emulators is ok). Specifically, we want to test primarily in: 1.5, 1.6, 2.1, 2.2 and 2.3, but the absolute minimum is ensuring 1.5 and 2.2 work (some features are not available in 1.5, but it shouldn't crash when you try to use them).
+This is the most important step - open up eclipse, import the projects from the above clone, and test its features in at least a few different versions of Android (using emulators is ok). Specifically, we want to test primarily in: 1.5, 2.1 and 2.3, but the absolute minimum is ensuring 1.5 and 2.2 work (some features are not available in 1.5, but it shouldn't crash when you try to use them).
 
 Another part of testing is to run the My Tracks unit test - import the test project from the clone above (with the proper eclipse variable setup described in [DevelopmentProcess]), and make it run the tests as android tests (that will bring up an emulator to run them, or you can run them on a real device which is faster).
 
@@ -38,6 +38,8 @@ $ hg tag v1.0.13
 == APK generation ==
 
 To generate a release APK, from Eclipse, right-click on the MyTracks project, choose Export, Android Application, then follow the steps by selecting the keystore and typing in its password (if you're releasing, you probably know where to find those, they're not public for security reasons).
+
+When the APK is exported, ProGuard runs on it (to reduce APK size, but it also does obfuscation). You *MUST* keep the files from the proguard subdirectory (that's generated during the export) so that any stack traces are useful. For safety, don't just keep them - send them to mytracks-dev@googlegroups.com so all developers have access to them for debugging.
 
 After this, the generated APK can be uploaded directly to the Android Market. Don't forget to update the fields in the Android Market as appropriate.
 

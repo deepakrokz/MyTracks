@@ -16,6 +16,9 @@ Go to http://google.com/fusiontables, where you'll see a list of your tracks (Fu
   * *As an iframe for embedding* Click 'Get embeddable link' above the map.
   * *As KML* You can either download a KML file using the 'Export to KML' link, or get a URL to a Google-hosted KML file using the 'Get KML network link' link.
 
+=== To see track statistics ===
+
+When you view the track as a map, you'll see a red dot at the end of the route.  Click that dot, and a bubble will appear.  In that bubble will be the stats for the ride, as well as an elevation chart.
 
 = Something to add? =
 

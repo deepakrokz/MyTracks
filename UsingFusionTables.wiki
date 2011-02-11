@@ -20,6 +20,17 @@ Go to http://google.com/fusiontables, where you'll see a list of your tracks (Fu
 
 When you view the track as a map, you'll see a red dot at the end of the route.  Click that dot, and a bubble will appear.  In that bubble will be the stats for the ride, as well as an elevation chart.
 
+== To export a track ==
+
+=== Exporting tracks to MyMaps ===
+
+  * Open the Fusion Table, then choose 'Map' under the 'Visualize' menu.
+  * Above the map is an option called 'Get KML network link'. Copy that link.
+  * Go to Google Maps.  Click the My Maps link.
+  * Click Create a new map.
+  * Click Import.
+  * Paste the KML link into the dialog box.
+
 = Something to add? =
 
 If you'd like to add something to this page, please do one of the following, in order of preference:

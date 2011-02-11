@@ -4,6 +4,10 @@
 
 With the retirement of the MyMaps API, we've switched to using Fusion Tables for online storage of your tracks.  The Fusion Tables user interface is different than the MyMaps interface, so we've created this page to help you use Fusion Tables effectively with your MyTracks data.
 
+Before we dive in, it's worth mentioning that Fusion Tables can do just about anything that MyMaps could.  There's one important thing that it can do that MyMaps couldn't: When Fusion Tables renders a track, it displays *the entire track*.  This is different from MyMaps, which breaks the track up into pages, and only displays a page worth at a time.
+
+Like MyMaps, the Fusion Tables user interface can be used to share links to maps, download KML files, get links to Google-hosted KML files, and to get embedding-ready iframes for use in blogs and other websites.
+
 == To view a track ==
 
 === As the track owner ===

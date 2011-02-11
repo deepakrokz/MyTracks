@@ -2,12 +2,16 @@
 
 = Introduction =
 
-Add your content here.
+With the retirement of the MyMaps API, we've switched to using Fusion Tables for online storage of your tracks.  The Fusion Tables user interface is different than the MyMaps interface, so we've created this page to help you use Fusion Tables effectively with your MyTracks data.
 
+== To view a track ==
 
-= Details =
+=== As the track owner ===
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+Go to http://google.com/fusiontables, where you'll see a list of your tracks (Fusion Tables calls them tables).  Click the track/table name.  You'll be taken to a screen which shows the rows in your table.  Open the Visualize menu and select Map.
+
+=== To share with someone else ===
+
+  * *As a link* Click the 'Get link' button in the top right corner of the page.  The generated link will preserve whatever zooming and panning you've done.
+  * *As an iframe for embedding* Click 'Get embeddable link' above the map.
+  * *As KML* You can either download a KML file using the 'Export to KML' link, or get a URL to a Google-hosted KML file using the 'Get KML network link' link.

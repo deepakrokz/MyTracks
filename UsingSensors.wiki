@@ -6,6 +6,18 @@
 
 = Using Bluetooth Sensors with !MyTracks =
 
+!MyTracks supports the Bluetooth Heart Rate monitors.  At present, that means the [http://www.zephyr-technology.com/consumer-hxm Zephyr HxM].  If you know of other Bluetooth HRMs we should add to this list, please let us know.  We support Bluetooth HRMs on any phone which supports Bluetooth.  Note that you will need to have the Bluetooth radio enabled while recording your track if !MyTracks is to receive heart rate data.
+
+== Configuring !MyTracks to use Bluetooth Sensors ==
+
+Start !MyTracks, and open the settings.  Select Sensor Options, and then set Sensor Type to Zephyr Bluetooth.
+
+<table align="center"><tr><td>
+http://wiki.mytracks.googlecode.com/hg/images/settings.png
+http://wiki.mytracks.googlecode.com/hg/images/settings-sensor-options.png
+http://wiki.mytracks.googlecode.com/hg/images/settings-sensor-options-sensor-type-bluetooth.png
+</td></tr></table>
+
 = Using ANT Sensors with !MyTracks =
 
 In order to use ANT Sensors with !MyTracks, you must have a phone which contains an ANT receiver, and you must have an ANT-compatible sensor.
@@ -16,13 +28,38 @@ As of this writing, the only phones which are ANT-compatible are specific ones i
 
 In order to use the ANT receiver on your !SonyEricsson phone, you must first install the [https://market.android.com/details?id=com.dsi.ant.service.socket ANT Radio Service] app.
 
-Once you've installed the ANT Radio Service, start !MyTracks, and open the settings.  Select Sensor Options, and then set Sensor Type to ANT+ Sensors.
+== Configuring !MyTracks to use ANT ==
+
+Start !MyTracks, and open the settings.  Select Sensor Options, and then set Sensor Type to ANT+ Sensors.
+
+<table align="center"><tr><td>
+http://wiki.mytracks.googlecode.com/hg/images/settings.png
+http://wiki.mytracks.googlecode.com/hg/images/settings-sensor-options.png
+http://wiki.mytracks.googlecode.com/hg/images/settings-sensor-options-sensor-type-ant.png
+</td></tr></table>
 
 == Pairing a new sensor ==
 
 Assuming that you haven't already paired !MyTracks with a sensor, pairing will begin when you start recording a new track.  If you've already paired !MyTracks with a given sensor, it will automatically start using that sensor when you start a new track.  If you want to use a different sensor, you must first [#Unpairing_an_old_sensor unpair] with the current one.
 
 To verify whether !MyTracks has paired successfully with a new sensor, you can use the Sensor State page, accessible from the map view by pressing the Menu button on your phone.  Your heart rate will display on the Sensor State page if !MyTracks has successfully paired with your sensor.
+
+<table align="center">
+  <tr>
+    <td>
+      <table align="center"><tr><td>
+      http://wiki.mytracks.googlecode.com/hg/images/sensor-state-unpaired.png
+      </td></tr><tr><td align="center">
+      Unpaired</td></tr></table>
+    </td>
+    <td>
+      <table align="center"><tr><td>
+      http://wiki.mytracks.googlecode.com/hg/images/sensor-state-paired.png
+      </td></tr><tr><td align="center">
+      Paired, and receiving data</td></tr></table>
+    </td>
+  </tr>
+</table>
 
 == Unpairing an old sensor ==
 

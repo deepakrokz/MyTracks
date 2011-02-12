@@ -2,12 +2,32 @@
 
 = Introduction =
 
-MyTracks is able to include data from heart rate monitors in recorded tracks.  We're working on adding support for other sensors (speed, cadence, and power) in upcoming releases.
+!MyTracks is able to include data from heart rate monitors in recorded tracks.  We're working on adding support for other sensors (speed, cadence, and power) in upcoming releases.
 
-= Using Bluetooth Sensors with MyTracks =
+= Using Bluetooth Sensors with !MyTracks =
 
-= Using ANT Sensors with MyTracks =
+= Using ANT Sensors with !MyTracks =
 
-In order to use ANT Sensors with MyTracks, you must have a phone which contains an ANT receiver, and you must have an ANT-compatible sensor.
+In order to use ANT Sensors with !MyTracks, you must have a phone which contains an ANT receiver, and you must have an ANT-compatible sensor.
 
 As of this writing, the only phones which are ANT-compatible are specific ones in the Sony Xperia series, such as the [http://www.sonyericsson.com/cws/products/mobilephones/overview/xperiaarc Sony Xperia Arc].  Sony has [http://blogs.sonyericsson.com/developerworld/2011/01/06/use-your-sony-ericsson-phone-with-ant-enabled-health-and-fitness-products/ indicated] that a software update will enable ANT support on the Xperia X8, Xperia X10 mini, and Xperia X10 mini Pro in Q1 2011.
+
+== Preparing your phone to use ANT ==
+
+In order to use the ANT receiver on your !SonyEricsson phone, you must first install the [https://market.android.com/details?id=com.dsi.ant.service.socket ANT Radio Service] app.
+
+Once you've installed the ANT Radio Service, start !MyTracks, and open the settings.  Select Sensor Options, and then set Sensor Type to ANT+ Sensors.
+
+== Pairing a new sensor ==
+
+Assuming that you haven't already paired !MyTracks with a sensor, pairing will begin when you start recording a new track.  If you've already paired !MyTracks with a given sensor, it will automatically start using that sensor when you start a new track.  If you want to use a different sensor, you must first [#Unpairing_an_old_sensor unpair] with the current one.
+
+To verify whether !MyTracks has paired successfully with a new sensor, you can use the Sensor State page, accessible from the map view by pressing the Menu button on your phone.  Your heart rate will display on the Sensor State page if !MyTracks has successfully paired with your sensor.
+
+== Unpairing an old sensor ==
+
+Open the Settings menu.  Select Sensor Options.  Select "Clear ANT heart rate sensor".  The phone has now been unpaired with your sensor.  It will attempt to pair with a new sensor when you start your next track.
+
+= Upcoming improvements =
+
+!MyTracks currently supports ANT and Bluetooth Heart Rate Monitors.  We're working on adding support for ANT Cadence, Speed, and Power sensors.  We're also going to create a new Pairing screen to ease the pairing process.

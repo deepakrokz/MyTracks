@@ -1,0 +1,13 @@
+#summary Using external sensors with MyTracks
+
+= Introduction =
+
+MyTracks is able to include data from heart rate monitors in recorded tracks.  We're working on adding support for other sensors (speed, cadence, and power) in upcoming releases.
+
+= Using Bluetooth Sensors with MyTracks =
+
+= Using ANT Sensors with MyTracks =
+
+In order to use ANT Sensors with MyTracks, you must have a phone which contains an ANT receiver, and you must have an ANT-compatible sensor.
+
+As of this writing, the only phones which are ANT-compatible are specific ones in the Sony Xperia series, such as the [http://www.sonyericsson.com/cws/products/mobilephones/overview/xperiaarc Sony Xperia Arc].  Sony has [http://blogs.sonyericsson.com/developerworld/2011/01/06/use-your-sony-ericsson-phone-with-ant-enabled-health-and-fitness-products/ indicated] that a software update will enable ANT support on the Xperia X8, Xperia X10 mini, and Xperia X10 mini Pro in Q1 2011.

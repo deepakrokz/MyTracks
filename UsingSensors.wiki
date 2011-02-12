@@ -18,6 +18,10 @@ http://wiki.mytracks.googlecode.com/hg/images/settings-sensor-options.png
 http://wiki.mytracks.googlecode.com/hg/images/settings-sensor-options-sensor-type-bluetooth.png
 </td></tr></table>
 
+== Pairing a new sensor ==
+
+== Unpairing a sensor ==
+
 = Using ANT Sensors with !MyTracks =
 
 In order to use ANT Sensors with !MyTracks, you must have a phone which contains an ANT receiver, and you must have an ANT-compatible sensor.

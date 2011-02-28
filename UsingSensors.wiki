@@ -6,7 +6,11 @@
 
 = Using Bluetooth Sensors with !MyTracks =
 
-!MyTracks supports the Bluetooth Heart Rate monitors.  At present, that means the [http://www.zephyr-technology.com/consumer-hxm Zephyr HxM].  If you know of other Bluetooth HRMs we should add to this list, please let us know.  We support Bluetooth HRMs on any phone which supports Bluetooth.  Note that you will need to have the Bluetooth radio enabled while recording your track if !MyTracks is to receive heart rate data.
+Bluetooth sensors:
+  * [http://www.zephyr-technology.com/consumer-hxm Zephyr HxM] strap: *Supported*
+  * [http://www.polar.fi/en/products/accessories/Polar_WearLink_transmitter_with_Bluetooth Polar WIND Bluetooth HRM] strap: *Not currently supported*
+
+If you know of other Bluetooth HRMs (or other applicable Bluetooth sensors) we should add to this list, please let us know.  We support Bluetooth HRMs on any phone which supports Bluetooth.  Note that you will need to have the Bluetooth radio enabled while recording your track if !MyTracks is to receive heart rate data.
 
 == Configuring !MyTracks to use Bluetooth Sensors ==
 

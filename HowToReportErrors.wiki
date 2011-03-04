@@ -7,11 +7,12 @@ If My Tracks fails in any way it is important to capture the system log.  Every 
 
 If you have experienced an error with the app the best way to tell us is to send a log of your device to mytracks-support@google.com or post it to the appropriate issue on this site.  If you are technically inclined you can use adb logcat with a USB cord. The much easier approach is to use a log collector app on the device. 
 We recommend the following app for easy log collection: 
-*Log Collector*
+[https://market.android.com/details?id=com.xtralogic.android.logcollector Log Collector]
 
 Without a log it is near impossible for us to debug your errors.  Since the system log is circular it is very important that you catch an error shortly after it occurs otherwise the data will be overwritten by new logging messages.
 
 Once you have recorded the logs please write a new issue:
+
 [http://code.google.com/p/mytracks/issues/entry New Issue]
 
 Sorry for anyone who is experiencing errors.

@@ -11,5 +11,8 @@ We recommend the following app for easy log collection:
 
 Without a log it is near impossible for us to debug your errors.  Since the system log is circular it is very important that you catch an error shortly after it occurs otherwise the data will be overwritten by new logging messages.
 
+Once you have recorded the logs please write a new issue:
+[http://code.google.com/p/mytracks/issues/entry New Issue]
+
 Sorry for anyone who is experiencing errors.
 Please help us make the app even better by sending us detailed logs.

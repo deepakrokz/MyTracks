@@ -173,6 +173,19 @@ To properly compile and run tests, you'll also need to set two Eclipse variables
 
 Also, when writing code for My Tracks, please keep your coding style consistent with the one in the rest of the app. There's an XML style definition in the source tree (mytracks-style.xml) section which can be imported into Eclipse (Preferences > Java > Code Style > Formatter, Import). You should also import the import-order definition (Preferences > Java > Code Style > Organize Imports, Import) from the same directory.
 
+= Maps API keys =
+
+Please notice that using the Maps API to display maps on Android requires a per-developer key. The key that's saved in the repository is the one for packages signed with the My Tracks release key - if you'd like maps to show up when running your own copy of My Tracks, then you'll need to change MyTracks/res/layout/mytracks_layout.xml to set your own key.
+
+To obtain your own key, first get the fingerprint of your certificate:
+
+{{{
+$ keytool -list -keystore ~/.android/debug.keystore
+}}}
+
+(the password is "android")
+
+Take the displayed fingerprint and [http://code.google.com/intl/pt-BR/android/maps-api-signup.html request a maps api key from Google]. Put the provided api key in mytracks_layout.xml, and *remember not to commit the key change back to the repository*.
 
 = Maintainer instructions =
 

@@ -155,9 +155,13 @@ summary:     Added an extra line of output
 
 To request a code review, go into the "Issues" tab of the My Tracks project, click new Issue, select template "Review request", fill out the fields from the template. Someone will then review the code changes and integrate them when ready.
 
+= Android SDK =
+
+Before getting any code, you should install the [http://developer.android.com/sdk/installing.html Android SDK] and the required [http://developer.android.com/sdk/adding-components.html components]. At the time of this writing, you'll need "Google APIs by Google Inc, Android API 11" and "SDK Platform ANdroid 3.0, API 11", although this may change as the code evolves.
+
 = Eclipse setup =
 
-My Tracks is primarily developed using [http://www.eclipse.org Eclipse], and uses the Android plugin which should be installed as described [http://developer.android.com/sdk/eclipse-adt.html#installing here].
+My Tracks is primarily developed using [http://www.eclipse.org Eclipse]. To set it up, first install the Android SDK as described above, then install the Eclipse plugin as described [http://developer.android.com/sdk/eclipse-adt.html#installing here].
 
 Once you have the code in your local clone, use File > Import > General > Existing Projects into Workspace, then select the MyTracks directory. Repeat this for the MyTracksTest directory, and you should have both projects on your workspace.
 

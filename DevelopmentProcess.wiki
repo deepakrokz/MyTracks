@@ -5,6 +5,42 @@
 
 This document is for programmers who want to contribute changes to My Tracks. If you just want to request a feature or file a bug, but have someone else work on it, please use the "Issues" tab above.
 
+= Android SDK =
+
+Before getting any code, you should install the [http://developer.android.com/sdk/installing.html Android SDK] and the required [http://developer.android.com/sdk/adding-components.html components]. At the time of this writing, you'll need "Google APIs by Google Inc, Android API 11" and "SDK Platform ANdroid 3.0, API 11", although this may change as the code evolves.
+
+= Eclipse setup =
+
+My Tracks is primarily developed using [http://www.eclipse.org Eclipse]. To set it up, first install the Android SDK as described above, then install the Eclipse plugin as described [http://developer.android.com/sdk/eclipse-adt.html#installing here].
+
+Once you have the code in your local clone (see below for instructions on using version control to get it), use File > Import > General > Existing Projects into Workspace, then select the MyTracks directory. Repeat this for the MyTracksTest directory, and you should have both projects on your workspace.
+
+To properly compile and run tests, you'll also need to set two Eclipse variables, which can be set under Eclipse Preferences > Java > Build path > Classpath variables:
+  * *ANDROID_SDK* - make this variable point to the Android SDK's root directory (the one inside which is the platforms directory)
+  * *MYTRACKS_BIN* - make this variable point to the MyTracks/bin directory in your clone
+
+*HACK*: If Eclipse complains about a missing gen or res directory, do the following steps:
+  # Disable auto-building (uncheck Project > Build Automatically)
+  # Clean the project without building (Project > Clean, uncheck Start a Build Immediately)
+  # Create an empty directory called "gen" in both projects, and an empty directory called "res" in MyTracksTest
+  # Build normally
+
+Also, when writing code for My Tracks, please keep your coding style consistent with the one in the rest of the app. There's an XML style definition in the source tree (mytracks-style.xml) section which can be imported into Eclipse (Preferences > Java > Code Style > Formatter, Import). You should also import the import-order definition (Preferences > Java > Code Style > Organize Imports, Import) from the same directory.
+
+= Maps API keys =
+
+Please notice that using the Maps API to display maps on Android requires a per-developer key. The key that's saved in the repository is the one for packages signed with the My Tracks release key - if you'd like maps to show up when running your own copy of My Tracks, then you'll need to change MyTracks/res/layout/mytracks_layout.xml to set your own key.
+
+To obtain your own key, first get the fingerprint of your certificate:
+
+{{{
+$ keytool -list -keystore ~/.android/debug.keystore
+}}}
+
+(the password is "android")
+
+Take the displayed fingerprint and [http://code.google.com/intl/pt-BR/android/maps-api-signup.html request a maps api key from Google]. Put the provided api key in mytracks_layout.xml, and *remember not to commit the key change back to the repository*.
+
 = Version control =
 
 == Overview ==
@@ -153,43 +189,7 @@ summary:     Added an extra line of output
 
 == Requesting a code review ==
 
-To request a code review, go into the "Issues" tab of the My Tracks project, click new Issue, select template "Review request", fill out the fields from the template. Someone will then review the code changes and integrate them when ready.
-
-= Android SDK =
-
-Before getting any code, you should install the [http://developer.android.com/sdk/installing.html Android SDK] and the required [http://developer.android.com/sdk/adding-components.html components]. At the time of this writing, you'll need "Google APIs by Google Inc, Android API 11" and "SDK Platform ANdroid 3.0, API 11", although this may change as the code evolves.
-
-= Eclipse setup =
-
-My Tracks is primarily developed using [http://www.eclipse.org Eclipse]. To set it up, first install the Android SDK as described above, then install the Eclipse plugin as described [http://developer.android.com/sdk/eclipse-adt.html#installing here].
-
-Once you have the code in your local clone, use File > Import > General > Existing Projects into Workspace, then select the MyTracks directory. Repeat this for the MyTracksTest directory, and you should have both projects on your workspace.
-
-To properly compile and run tests, you'll also need to set two Eclipse variables, which can be set under Eclipse Preferences > Java > Build path > Classpath variables:
-  * *ANDROID_SDK* - make this variable point to the Android SDK's root directory (the one inside which is the platforms directory)
-  * *MYTRACKS_BIN* - make this variable point to the MyTracks/bin directory in your clone
-
-*HACK*: If Eclipse complains about a missing gen or res directory, do the following steps:
-  # Disable auto-building (uncheck Project > Build Automatically)
-  # Clean the project without building (Project > Clean, uncheck Start a Build Immediately)
-  # Create an empty directory called "gen" in both projects, and an empty directory called "res" in MyTracksTest
-  # Build normally
-
-Also, when writing code for My Tracks, please keep your coding style consistent with the one in the rest of the app. There's an XML style definition in the source tree (mytracks-style.xml) section which can be imported into Eclipse (Preferences > Java > Code Style > Formatter, Import). You should also import the import-order definition (Preferences > Java > Code Style > Organize Imports, Import) from the same directory.
-
-= Maps API keys =
-
-Please notice that using the Maps API to display maps on Android requires a per-developer key. The key that's saved in the repository is the one for packages signed with the My Tracks release key - if you'd like maps to show up when running your own copy of My Tracks, then you'll need to change MyTracks/res/layout/mytracks_layout.xml to set your own key.
-
-To obtain your own key, first get the fingerprint of your certificate:
-
-{{{
-$ keytool -list -keystore ~/.android/debug.keystore
-}}}
-
-(the password is "android")
-
-Take the displayed fingerprint and [http://code.google.com/intl/pt-BR/android/maps-api-signup.html request a maps api key from Google]. Put the provided api key in mytracks_layout.xml, and *remember not to commit the key change back to the repository*.
+To request a code review, go into the "Issues" tab of the My Tracks project, click new Issue, select template "Review request", fill out the fields from the template. Someone will then review the code changes and integrate them when ready. Please notice that if the code change is for an existing, open issue, there's no need to file a separate request for the code review - simply post the link to the relevant changes on that issue (and if you have permission to, change its state to "UnderReview").
 
 = Maintainer instructions =
 

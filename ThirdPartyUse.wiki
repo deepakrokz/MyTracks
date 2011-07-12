@@ -9,7 +9,19 @@ It is also possible to read track data directly from mytracks - e.g. to export i
 
 = MyTracks Library =
 
-All of the code needed to talk to My Tracks is in the MyTracksLib project.
+All of the code needed to talk to My Tracks is in the MyTracksLib project (in addition to Android's standard APIs).
+
+The recommended way to bring MyTracksLib into your project, if you're using Mercurial, is to use an hgsub:
+
+{{{
+$ echo MyTracksLib = http://mytracks.googlecode.com/hg/MyTracksLib > .hgsub
+$ hg add .hgsub
+$ hg clone http://mytracks.googlecode.com/hg/MyTracksLib MyTracksLib
+$ hg commit -m "Added MyTracksLib subrepository"
+}}}
+
+You can then later pull new changes from our repository into yours easily (even if you have applied your own changes on top, you'll just need to merge or rebase as usual). For more details on Mercurial subrepositories, see [http://mercurial.selenic.com/wiki/Subrepository the official documentation].
+
 == Import My Tracks Projects ==
 File -> Import ... -> Select the directory that contains all of the My Tracks code.
 

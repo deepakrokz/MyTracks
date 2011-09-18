@@ -29,3 +29,4 @@ Before you submit a request for a code review carefully review this page and mak
   # Commit and push your changes to your clone.
   # Submit your replies generated in step 3.
   # Go to step 2.
+  # After some number of iterations the code will be accepted by the team.  At that point we will push your change to the repository.

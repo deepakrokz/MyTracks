@@ -1,0 +1,18 @@
+#summary One-How to successfully submit code to My Tracks
+
+= Introduction =
+
+The My Tracks team tries to maintain a high quality code base.  It is with this goal that we will only accept code changes that meet the standard of the application.  We will critique both the content and the style of the code written.
+
+= Files to submit =
+When changing My Tracks only submit changes for the files which govern the part of My Tracks you are changing.  Many first time submitters will submit accidental changes to core files such as .project or AndroidManifest.xml.  We cannot afford to change those files on accident.  Carefully review your revisions to ensure they only contain files you feel need to be changed.
+
+= Code Quality =
+There are almost a million people who use My Tracks regularly. Keeping My Tracks running is more important than any feature you might want to add.
+To keep the code base efficient and reduce the possibilities of bugs we will push all submission to:
+# Not contain duplicated or near duplicate code.
+# Make reasonable effort to test all code paths.
+
+= Code Style =
+Many people contribute code to My Tracks.  The only way to keep the code consistent is to have a very strict style guide.  We roughly follow the Sun Java Style guide.  Please review it here:
+http://www.oracle.com/technetwork/java/codeconv-138413.html

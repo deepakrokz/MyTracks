@@ -190,6 +190,7 @@ summary:     Added an extra line of output
 == Requesting a code review ==
 
 To request a code review, go into the "Issues" tab of the My Tracks project, click new Issue, select template "Review request", fill out the fields from the template. Someone will then review the code changes and integrate them when ready. Please notice that if the code change is for an existing, open issue, there's no need to file a separate request for the code review - simply post the link to the relevant changes on that issue (and if you have permission to, change its state to "UnderReview").
+Please consult our [CodeReviewProcess] wiki for detailed instructions on a successful review.
 
 = Maintainer instructions =
 

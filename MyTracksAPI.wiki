@@ -1,0 +1,78 @@
+#summary Another Android application can use the MyTracks API to access MyTracks data and start/stop a recording.
+#labels Phase-Support
+
+= Still in Draft mode =
+= Introduction =
+!MyTracks API consists of three mechanisms, content provider, service, and notifications, to allow third-party applications to access and control !MyTracks data.
+
+Access to the !MyTracks API is protected through the Android permissions. In addition to the permissions, !MyTracks has a setting inside the !MyTracks app to allow users to enable and revoke access to third-party applications.
+
+Note that Android will only grant permissions to the third-party apps if !MyTracks is already installed when installing the third-party apps. 
+
+Through the content provider, one can read/write the !MyTracks database.
+Through the service, one can start/stop the !MyTracks recording service. Finally, through the notifications, one can get notified when a recording has started/stopped.
+
+= Setup =
+!MyTracks provide the !MyTracksLib to make it easier for third-party apps to access !MyTracks.
+
+ # Download the !MyTracks code to get !MyTracksLib
+{{{
+hg clone https://mytracks.googlecode.com/hg MyTracks
+}}}
+
+The following assumes you are using Eclipse for your Android development.
+In Eclipse, make sure your Java Compiler is set to 1.6.
+
+ # Import the !MyTracks project
+ # Add !MyTracksLib to your Android app
+ # Reference protobuf-java-2.3.0-lite.jar in your Android app
+
+= !MyTracks Content Provider =
+ # Add the following permission to !AndroidManifest.xml for read access
+{{{
+<uses-permission android:name="com.google.android.apps.mytracks.READ_TRACK_DATA" />
+}}}
+ # Add the following permission to !AndroidManifest.xml for write access
+{{{
+<uses-permission android:name="com.google.android.apps.mytracks.WRITE_TRACK_DATA" />
+}}}
+
+You can access the content provider through getContentResolver by passing in the appropriate URIs to the various methods. However, MyTracks provides a utility library that wraps the various content provider calls to make access easier. 
+
+= !MyTracks Service =
+ # Add the following permission to !AndroidManifest.xml
+{{{
+ <uses-permission android:name="com.google.android.apps.mytracks.WRITE_TRACK_DATA" />
+}}}
+
+To use the service, you need to first start the service, then bind it. Afterwards, you can invoke the various methods of the service. To cleanup, you need to unbind and the stop the service.
+
+ # Sample
+{{{
+Intent intent = new Intent();
+    intent.setComponent(new ComponentName(getString(R.string.mytracks_service_package),
+        getString(R.string.mytracks_service_class)));
+
+ startService(intent);
+ bindService(intent, this, 0)
+}}}
+
+= !MyTracks Notifications =
+ # Add the following permission to !AndroidManifest.xml
+{{{
+<uses-permission android:name="com.google.android.apps.mytracks.TRACK_NOTIFICATIONS" />
+}}}
+ # Sample
+{{{
+public class Receiver extends BroadcastReceiver {
+  @Override
+  public void onReceive(Context context, Intent intent) {
+    String action = intent.getAction();
+    long trackId = intent.getLongExtra(context.getString(R.string.track_id_broadcast_extra), -1L);
+    Toast.makeText(context, action + " " + trackId, Toast.LENGTH_LONG).show();
+  }
+}
+}}}
+
+= Sample Client App =
+See !MyTracksApiSampleClient on the top level directory when downloading the !MyTracks source code.

@@ -1,4 +1,4 @@
-#summary Another Android application can use the MyTracks API to access MyTracks data and start/stop a recording.
+#summary Other Android applications can use the MyTracks API to access MyTracks data and start/stop a recording.
 #labels Phase-Support
 
 = Introduction =

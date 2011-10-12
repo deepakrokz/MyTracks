@@ -25,7 +25,7 @@ In Eclipse, make sure your Java Compiler is set to 1.6.
 == 2. Import the !MyTracksLib project ==
 File->Import...
  * General->Existing Projects into Workspace
- * Select root directory: mytracks/MyTracksLib
+ * Select root directory: mytracks/!MyTracksLib
  * Finish
 
 == 3. Add !MyTracksLib to your Android app ==
@@ -40,7 +40,7 @@ File->Import...
  * Java Build Path
  * Libraries
  * Add JARs...
- * MyTracksLib/libs/protobuf-java-2.3.0-lite.jar
+ * !MyTracksLib/libs/protobuf-java-2.3.0-lite.jar
  * OK
  * OK
 
@@ -54,7 +54,7 @@ File->Import...
 <uses-permission android:name="com.google.android.apps.mytracks.WRITE_TRACK_DATA" />
 }}}
 
-You can access the content provider by getting a ContentResolver, through getContentResolver, and calling the various methods like query and insert and passing in the appropriate URIs. However, MyTracks makes it easier to access the content provider by providing an utility library, MyTracksProviderUtils, that provides many methods to invoke the content provider.
+You can access the content provider by getting a !ContentResolver, through getContentResolver, and calling the various methods like query and insert and passing in the appropriate URIs. However, !MyTracks makes it easier to access the content provider by providing an utility library, !MyTracksProviderUtils, that provides many methods to invoke the content provider.
 
 {{{
 private MyTracksProviderUtils utils;

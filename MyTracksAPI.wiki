@@ -53,7 +53,7 @@ hg clone https://mytracks.googlecode.com/hg mytracks
  # Sample
 You can access the content provider by getting a !ContentResolver, through getContentResolver, and calling the various methods like query and insert and passing in the appropriate URIs. However, !MyTracks makes it easier to access the content provider by providing an utility library, !MyTracksProviderUtils, that provides many methods to invoke the content provider.
 {{{
-private MyTracksProviderUtils utils;
+  private MyTracksProviderUtils utils;
 
   @Override
   public void onCreate(Bundle savedInstanceState) {
@@ -81,6 +81,7 @@ private MyTracksProviderUtils utils;
  # Sample
 To use the service, you need to first start the service, then bind it. Afterwards, you can invoke the various methods of the service. To cleanup, you need to unbind and stop the service.
 {{{
+public class MyTracksApiSampleActivity extends Activity implements ServiceConnection {
   private ITrackRecordingService myTracksService;
 
   @Override
@@ -94,15 +95,21 @@ To use the service, you need to first start the service, then bind it. Afterward
   public void onServiceDisconnected(ComponentName name) {
     myTracksService = null;
   }
-
+}
+  // the following are just code snippets
+  
   Intent intent = new Intent();
-  intent.setComponent(new ComponentName(getString(R.string.mytracks_service_package),
-        getString(R.string.mytracks_service_class)));
+  intent.setComponent(new ComponentName(
+      getString(R.string.mytracks_service_package),
+      getString(R.string.mytracks_service_class)));
 
   startService(intent);
   bindService(intent, this, 0)
 
-  // bindService is asynchronous, after binding finishes
+  /*
+   * bindService is asynchronous. Need to make sure binding completes
+   * before invoking the service's methods.
+   */
 
   myTracksService.startNewTrack();
   myTracksService.endCurrentTrack();

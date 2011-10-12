@@ -68,7 +68,7 @@ You can access the content provider by getting a !ContentResolver, through getCo
     // An example of getting all the tracks    
     List<Track> tracks = utils.getAllTracks(); 
     for (Track track : tracks) {
-      System.out.println("***** Track id " + track.getId());
+      System.out.println("Track id " + track.getId());
     }
   }
 }}}

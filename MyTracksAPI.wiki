@@ -2,9 +2,9 @@
 #labels Phase-Support
 
 = Introduction =
-!MyTracks API consists of three mechanisms, content provider, service, and notifications, to allow third-party applications to access and control !MyTracks data.
+!MyTracks API consists of three mechanisms, content provider, service, and notifications, to allow third-party apps to access and control !MyTracks data.
 
-Access to the !MyTracks API is protected through the Android permissions. In addition to the permissions, !MyTracks has a setting inside the !MyTracks app to allow users to enable and revoke access to third-party applications.
+Access to the !MyTracks API is protected through the Android permissions. In addition to the permissions, !MyTracks has a setting inside the !MyTracks app to allow users to enable and revoke access to third-party apps.
 
 Note that Android will only grant permissions to the third-party apps if !MyTracks is already installed when installing the third-party apps. 
 

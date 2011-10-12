@@ -1,7 +1,6 @@
 #summary Another Android application can use the MyTracks API to access MyTracks data and start/stop a recording.
 #labels Phase-Support
 
-= Still in Draft mode =
 = Introduction =
 !MyTracks API consists of three mechanisms, content provider, service, and notifications, to allow third-party applications to access and control !MyTracks data.
 
@@ -13,9 +12,9 @@ Through the content provider, one can read/write the !MyTracks database.
 Through the service, one can start/stop the !MyTracks recording service. Finally, through the notifications, one can get notified when a recording has started/stopped.
 
 = Setup =
-!MyTracks provide the !MyTracksLib to make it easier for third-party apps to access !MyTracks.
+!MyTracks provides the !MyTracksLib to make it easier for third-party apps to access !MyTracks.
 
- # Download the !MyTracks code to get !MyTracksLib
+== 1. Download the !MyTracks code to get !MyTracksLib ==
 {{{
 hg clone https://mytracks.googlecode.com/hg mytracks
 }}}
@@ -23,27 +22,27 @@ hg clone https://mytracks.googlecode.com/hg mytracks
 The following assumes you are using Eclipse for your Android development.
 In Eclipse, make sure your Java Compiler is set to 1.6.
 
- # Import the !MyTracksLib project
+== 2. Import the !MyTracksLib project ==
 File->Import...
-General->Existing Projects into Workspace
-Select root directory: mytracks/MyTracksLib
-Finish
+ * General->Existing Projects into Workspace
+ * Select root directory: mytracks/MyTracksLib
+ * Finish
 
- # Add !MyTracksLib to your Android app
-Project->Properties
-Under the "Library" section
-Add...
-pick MyTracksLib
-OK
+== 3. Add !MyTracksLib to your Android app ==
+ * Project->Properties
+ * Under the "Library" section
+ * Add...
+ * pick !MyTracksLib
+ * OK
 
- # Reference protobuf-java-2.3.0-lite.jar in your Android app
-Project->Properties
-Java Build Path
-Libraries
-Add JARs...
-MyTracksLib/libs/protobuf-java-2.3.0-lite.jar
-OK
-OK
+== 4. Reference protobuf-java-2.3.0-lite.jar in your Android app ==
+ * Project->Properties
+ * Java Build Path
+ * Libraries
+ * Add JARs...
+ * MyTracksLib/libs/protobuf-java-2.3.0-lite.jar
+ * OK
+ * OK
 
 = !MyTracks Content Provider =
  # Add the following permission to !AndroidManifest.xml for read access
@@ -84,7 +83,7 @@ private MyTracksProviderUtils utils;
  <uses-permission android:name="com.google.android.apps.mytracks.WRITE_TRACK_DATA" />
 }}}
 
-To use the service, you need to first start the service, then bind it. Afterwards, you can invoke the various methods of the service. To cleanup, you need to unbind and the stop the service.
+To use the service, you need to first start the service, then bind it. Afterwards, you can invoke the various methods of the service. To cleanup, you need to unbind and stop the service.
 
  # Sample
 {{{
@@ -137,4 +136,4 @@ public class Receiver extends BroadcastReceiver {
 }}}
 
 = Sample Client App =
-See !MyTracksApiSample on the top level directory of the MyTracks code base.
+See !MyTracksApiSample on the top level directory of the !MyTracks code base.

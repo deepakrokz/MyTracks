@@ -8,8 +8,8 @@ Access to the !MyTracks API is protected through the Android permissions. In add
 
 Note that Android will only grant permissions to a third-party apps if !MyTracks is already installed when installing the third-party app. 
 
-Through the content provider, one can read/write the !MyTracks database.
-Through the service, one can start/stop the !MyTracks recording service. Finally, through the notifications, one can get notified when a recording has started/stopped.
+Through the content provider, third-party apps can read/write the !MyTracks database.
+Through the service, these apps can start/stop the !MyTracks recording service. Finally, through the notifications, these apps can get notified when a recording has started/stopped.
 
 = Setup =
 !MyTracks provides the !MyTracksLib to make it easier for third-party apps to access !MyTracks.

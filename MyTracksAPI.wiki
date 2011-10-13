@@ -26,6 +26,8 @@ hg clone https://mytracks.googlecode.com/hg mytracks
   * General->Existing Projects into Workspace
   * Select root directory: mytracks/!MyTracksLib
   * Finish
+ # Clean and rebuild the !MyTracksLib project
+  * Project->Clean...
  # Add !MyTracksLib to your Android app ==
   * Project->Properties
   * Under the "Library" section

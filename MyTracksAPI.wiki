@@ -30,6 +30,7 @@ hg clone https://mytracks.googlecode.com/hg mytracks
   * Project->Clean...
  # Add !MyTracksLib to your Android app ==
   * Project->Properties
+  * Android
   * Under the "Library" section
   * Add...
   * pick !MyTracksLib

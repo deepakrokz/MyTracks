@@ -1,0 +1,8 @@
+#labels Featured
+Release Notes for My Tracks version 1.1.11
+  * in the welcome flow, use a picker to ask the user if he prefers metrics or imperial units.
+  * fix crashes with Ant+ sensor manager
+  * remove temp files on the SD card
+  * when sharing a track with friend, include the track id
+  * fix button layout and order
+  * update all strings

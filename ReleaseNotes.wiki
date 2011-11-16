@@ -2,15 +2,12 @@
 #labels Featured
 
 Release Notes for My Tracks version 1.1.11
-  * change import tracks code.
-    * Test importing tracks when there is a recording and when there isn't a recording.
-    * Test importing a track from another application.
-  * in the welcome flow, use a picker to ask the user if he prefers metrics or imperial units.
-    * Test picking metrics.
-    * Test picking imperial.
-    * Test switching to imperial and then switch back to metrics. 
+  * change code to import tracks
+  * in the welcome flow, change code to ask the user if he prefers metrics or imperial
   * fix crashes with Ant+ sensor manager
   * remove temp files on the SD card
   * when sharing a track with friend, include the track id
   * fix button layout and order
   * update all strings
+  * add Settings->Recording->Default activity type
+  * fix "My location" not being centered on the map view

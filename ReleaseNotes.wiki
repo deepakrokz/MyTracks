@@ -1,13 +1,6 @@
 #summary Release notes, including the upcoming release
 #labels Featured
 
-Release Notes for My Tracks version 1.1.11
-  * change code to import tracks
-  * in the welcome flow, change code to ask the user if he prefers metric or imperial
-  * fix crashes with Ant+ sensor manager
-  * remove temp files on the SD card
-  * when sharing a track with friend, include the track id
-  * fix button layout and order
-  * update all strings
-  * add option to set the default activity type at Settings->Recording->Default activity type
-  * fix "My location" not being centered on the map view
+Release Notes for My Tracks version 1.1.12
+  * Localize the app to 80 locales.
+  * Fix deleting the first statistics marker.

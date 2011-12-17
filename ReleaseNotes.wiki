@@ -2,5 +2,6 @@
 #labels Featured
 
 Release Notes for My Tracks version 1.1.12
-  * Localize the app to 80 locales.
-  * Fix deleting the first statistics marker.
+  * Add localized strings to 78 locales.
+  * When sharing a link, only show the maps and fusion tables option.
+  * Fix a bug with deleting the first statistics marker.

@@ -4,8 +4,7 @@ Release Notes for My Tracks version 1.1.13
   * Improve string translations
   * Fix crashes when an error occurs during import
   * Fix crashes when an empty string is stored for the "Percentage".
-  * Fix crashes when opening the "Sensor state" without pairing
-    a bluetooth device.
+  * Fix crashes when opening the "Sensor state" without pairing a bluetooth device.
   * Add support for Norwegian.
   * Fix border on Chart view.
   * Fix metric/imperial display on Chart view.

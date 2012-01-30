@@ -1,5 +1,5 @@
 #summary Instructions to translate My Tracks to a new language.
-#labels Phase-Implementation
+#labels Phase-Implementation,Deprecated
 
 = Target Users =
 

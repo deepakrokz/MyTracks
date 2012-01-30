@@ -1,14 +1,13 @@
-#summary Release notes, including the upcoming release
+#summary Release notes
 
-Release Notes for My Tracks version 1.1.13
-  * Improve string translations
-  * Fix crashes when an error occurs during import
-  * Fix crashes when an empty string is stored for the "Percentage".
-  * Fix crashes when opening the "Sensor state" without pairing a bluetooth device.
-  * Add support for Norwegian.
-  * Fix border on Chart view.
-  * Fix metric/imperial display on Chart view.
-  * Fix speed/pace display on Chart view and Chart settings.
-  * Improve Chart settings layout.
-  * Fix total distance repeated twice in voice announcement.
-  * Change the about page layout to single column.
+Release Notes for My Tracks version 1.1.14
+  * Add a search menu option to search for tracks and waypoint
+  * Display date and time using the phone's format
+  * Add ISO 8601 date format as an option for the default track name in
+    Settings->Recording->Track name
+  * Improve the file name formatting when saving a track to the SD card
+  * Improve the code for sending a track to Google Maps, Google Fusion Tables, and Google Docs
+  * Improve code for sharing a Map or Fusion Table url with friends
+  * Improve the code to choose an account
+  * Improve the code to choose a Google Map
+  * improve "About My Tracks" layout

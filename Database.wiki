@@ -1,5 +1,5 @@
 #summary Description of MyTrack's database schema.
-#labels Phase-Implementation
+#labels Phase-Implementation,Deprecated
 
 = Tables =
 

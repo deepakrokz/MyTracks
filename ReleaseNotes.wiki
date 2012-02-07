@@ -1,13 +1,10 @@
 #summary Release notes
 
 Release Notes for My Tracks version 1.1.14
-  * Add a search menu option to search for tracks and waypoint
+  * Add a search function to search for tracks and waypoints
   * Display date and time using the phone's format
   * Add ISO 8601 date format as an option for the default track name in
     Settings->Recording->Track name
-  * Improve the file name formatting when saving a track to the SD card
+  * Add support for ANT+ cadence profile
+  * Improve the file name format when saving a track to the SD card
   * Improve the code for sending a track to Google Maps, Google Fusion Tables, and Google Docs
-  * Improve code for sharing a Map or Fusion Table url with friends
-  * Improve the code to choose an account
-  * Improve the code to choose a Google Map
-  * improve "About My Tracks" layout

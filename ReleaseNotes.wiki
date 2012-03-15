@@ -1,9 +1,9 @@
 #summary Release notes
 
-Release Notes for My Tracks version 1.1.14
-  * add a search menu option to search for tracks and markers by name, category, or description
-  * format date and time using the phone's format
-  * add ISO 8601 date format as an option for the default track name in Settings->Recording->Track name
-  * add ANT+ cadence profile
-  * allow international characters in the file name when saving a track to the SD card
-  * improve the code for sending a track to Google Maps, Google Fusion Tables, and Google Docs
+Release Notes for My Tracks version 1.1.16
+  * play track using the Google Earth mobile client
+  * update GPX, KML, CSV, and TCX output format
+  * add fractional seconds in location timestamp
+  * periodically remove files in the SD card temp directory
+  * only show the account picker when there is more than one account
+  * use H:MM:SS format for elapsed time when sending to Google Docs

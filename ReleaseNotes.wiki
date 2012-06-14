@@ -1,9 +1,12 @@
 #summary Release notes
 
-Release Notes for My Tracks version 1.1.16
-  * play track using the Google Earth mobile client
-  * update GPX, KML, CSV, and TCX output format
-  * add fractional seconds in location timestamp
-  * periodically remove files in the SD card temp directory
-  * only show the account picker when there is more than one account
-  * use H:MM:SS format for elapsed time when sending to Google Docs
+Release Notes for My Tracks version 2.0
+  * new database schema to include track icon
+  * option to use track location as the default track name
+  * track icon based on activity type. Currently has icons for biking, driving, skiing, running, and walking.
+  * new sharing flow
+  * fix Bluetooth and Ant+ sensors
+  * add voice frequency and split frequency
+  * after saving a track to SD card, can share the file
+  * new chart view
+  * new stats view

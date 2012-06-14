@@ -1,19 +1,14 @@
 #summary How to report errors
-= Introduction to Android Logging =
+= Introduction to Android System Log =
 
-If My Tracks fails in any way it is important to capture the system log.  Every Android phone has a circular log of system events.  All applications can put messages in this log.  My Tracks tries to log important events like crashes in this log.  If you can capture a log of My Tracks when it screws up it can help us improve the product.
+If My Tracks fails in any way, it is important to capture the system log.  Every Android phone has a circular log of system events.  All applications can put messages in it. My Tracks logs important events like crashes in this log.  If you can capture your system log when My Tracks fails, it can help us improve the product.
 
-= How to Provide Useful Logs =
+= How to Capture System Log =
 
-If you have experienced an error with the app the best way to tell us is to send a log of your device to mytracks-support@google.com or post it to the appropriate issue on this site.  If you are technically inclined you can use adb logcat with a USB cord. The much easier approach is to use a log collector app on the device. 
-We recommend the following app for easy log collection: 
-[https://market.android.com/details?id=com.xtralogic.android.logcollector Log Collector]
+Use a log collector app from the Play Store like https://play.google.com/store/apps/details?id=com.xtralogic.android.logcollector.
 
-Without a log it is near impossible for us to debug your errors.  Since the system log is circular it is very important that you catch an error shortly after it occurs otherwise the data will be overwritten by new logging messages.
+The system log is circular, thus it is important that you capture the log shortly after an error occurs, otherwise, the data will get overwritten by new log messages.
 
-Once you have recorded the logs please write a new issue:
+Once you have captured the log, please file a new issue at http://code.google.com/p/mytracks/issues/entry. Due to the sensitive nature of the log, you can just include the My Tracks messages from it.
 
-[http://code.google.com/p/mytracks/issues/entry New Issue]
-
-Sorry for anyone who is experiencing errors.
-Please help us make the app even better by sending us detailed logs.
+Sorry for anyone who is experiencing errors. Please help us make the app even better by sending us detailed logs.

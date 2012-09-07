@@ -1,12 +1,7 @@
 #summary Release notes
 
-Release Notes for My Tracks version 2.0
-  * new database schema to include track icon
-  * option to use track location as the default track name
-  * track icon based on activity type. Currently has icons for biking, driving, skiing, running, and walking.
-  * new sharing flow
-  * fix Bluetooth and Ant+ sensors
-  * add voice frequency and split frequency
-  * after saving a track to SD card, can share the file
-  * new chart view
-  * new stats view
+Release Notes for My Tracks version 2.0.2
+  * ability to pause/resume the current recording track
+  * record/pause/resume/stop buttons on the bottom of each page
+  * new app widget with pause/resume support
+  * new code for recording track and calculating track statistics

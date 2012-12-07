@@ -1,0 +1,18 @@
+= Welcome =
+
+  * Help Center
+    * For help on using My Tracks, see http://support.google.com/gmm/bin/answer.py?hl=en&answer=2391538&topic=2391064&ctx=topic
+    * If you feel an answer is missing or needs to be updated, please file a bug to update the help center.
+  * User Forum
+    * For My Tracks discussion, use https://productforums.google.com/forum/#!categories/maps/mytracks
+  * Bug/Feature Request
+     * Use http://code.google.com/p/mytracks/issues/list
+     * Before doing so, search through the existing issues to avoid duplication.
+  * Programmers contributing to My Tracks
+     * Use the following discussion group mytracks-dev@googlegroups.com
+     * Let us know what you would like to change.
+     * Can start with DevelopmentProcess.
+
+
+Sincerely, 
+the My Tracks team

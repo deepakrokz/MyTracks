@@ -85,7 +85,7 @@ Note: Upon import, eclipse might complain that one of the projects is missing a 
 
 4. Optional. Update the map view v2 key to see the map tiles.
   * See https://developers.google.com/maps/documentation/android/ for getting your key
-  * In AndroidManifest.xml, update the value for "com.google.android.maps.v2.API_KEY"
+  * In !AndroidManifest.xml, update the value for "com.google.android.maps.v2.API_KEY"
   * Remember, don’t include your key if you are committing the changes back to main.
 
 = Daily Development =

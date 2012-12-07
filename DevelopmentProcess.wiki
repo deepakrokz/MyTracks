@@ -8,7 +8,7 @@ This document is for programmers who want to contribute changes to My Tracks. Fo
 Currently we are using:
   * Eclipse version 3.8
   * Mercurial version 2.2.2
-  * !TortoiseHg version 2.4
+  * !TortoiseHg version 2.4 (Optional)
 
 = One Time Setup =
 

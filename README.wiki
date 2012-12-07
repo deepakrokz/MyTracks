@@ -1,3 +1,5 @@
+#summary Please read first
+
 = Welcome =
 
   * Help Center

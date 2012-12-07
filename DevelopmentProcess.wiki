@@ -114,3 +114,6 @@ Note: Upon import, eclipse might complain that one of the projects is missing a 
   * File a review ticket
     * In http://code.google.com/p/mytracks/issues/list
     * “New issue” -> Template: Review request
+
+= Comment =
+Email mytracks-dev@googlegroups.com

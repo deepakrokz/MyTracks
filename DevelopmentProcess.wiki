@@ -1,251 +1,116 @@
 #summary How to make changes to My Tracks source and have them merged back.
 #labels Featured,Phase-Implementation
 
-= Target users =
+= Overview =
 
-This document is for programmers who want to contribute changes to My Tracks. If you just want to request a feature or file a bug, but have someone else work on it, please use the "Issues" tab above.
+This document is for programmers who want to contribute changes to My Tracks. For My Tracks Android development, we use Eclipse for IDE, use Mercurial for source control. We also recommend !TortoiseHg, a graphical tool for Mercurial.
 
-= Android SDK =
+Currently we are using:
+  * Eclipse version 3.8
+  * Mercurial version 2.2.2
+  * !TortoiseHg version 2.4
 
-Before getting any code, you should install the [http://developer.android.com/sdk/installing.html Android SDK] and the required [http://developer.android.com/sdk/adding-components.html components]. At the time of this writing, you'll need "Google APIs by Google Inc, Android API 14" and "SDK Platform Android 4.0, API 14", although this may change as the code evolves.
+= One Time Setup =
 
-= Eclipse setup =
+We recommend creating several Mercurial clones, one for each change to be submitted. For each clone, we recommend creating its own local repository and its own eclipse workspace.
 
-My Tracks is primarily developed using [http://www.eclipse.org Eclipse]. To set it up, first install the Android SDK as described above, then install the Eclipse plugin as described [http://developer.android.com/sdk/eclipse-adt.html#installing here].
+1. Creating Mercurial clones
+  * At http://code.google.com/p/mytracks/source/checkout
+  * At the bottom, click “Create a clone”.
+E.g., my user name is "jshih" and I created several clones as follows
+  * jshih-mytracks1 (http://code.google.com/r/jshih-mytracks1/)
+  * jshih-mytracks2 (http://code.google.com/r/jshih-mytracks2/)
+  * jshih-mytracks3 (http://code.google.com/r/jshih-mytracks3/)
+For each clone, allow non-members to review code.
+  * In http://code.google.com/r/jshih-mytracks1/adminSource
+  * Under “Code reviews’, check “Enable code review” and check “Allow non-members to review code”.
 
-Once you have the code in your local clone (see below for instructions on using version control to get it), use File > Import > General > Existing Projects into Workspace, then select the MyTracks directory. Repeat this for the MyTracksTest directory, and you should have both projects on your workspace.
-
-To properly compile and run tests, you'll also need to set two Eclipse variables, which can be set under Eclipse Preferences > Java > Build path > Classpath variables:
-  * *ANDROID_SDK* - make this variable point to the Android SDK's root directory (the one inside which is the platforms directory)
-  * *MYTRACKS_BIN* - make this variable point to the MyTracks/bin directory in your clone
-
-*HACK*: If Eclipse complains about a missing gen or res directory, do the following steps:
-  # Disable auto-building (uncheck Project > Build Automatically)
-  # Clean the project without building (Project > Clean, uncheck Start a Build Immediately)
-  # Create an empty directory called "gen" in both projects, and an empty directory called "res" in MyTracksTest
-  # Build normally
-
-Also, when writing code for My Tracks, please keep your coding style consistent with the one in the rest of the app. There's an XML style definition in the source tree (mytracks-style.xml) section which can be imported into Eclipse (Preferences > Java > Code Style > Formatter, Import). You should also import the import-order definition (Preferences > Java > Code Style > Organize Imports, Import) from the same directory.
-
-= Maps API keys =
-
-Please notice that using the Maps API to display maps on Android requires a per-developer key. The key that's saved in the repository is the one for packages signed with the My Tracks release key - if you'd like maps to show up when running your own copy of My Tracks, then you'll need to change MyTracks/res/layout/mytracks_layout.xml to set your own key.
-
-To obtain your own key, first get the fingerprint of your certificate:
-
+2. Mercurial setup
 {{{
-$ keytool -list -keystore ~/.android/debug.keystore
+hg version
 }}}
+The command should work. If not, install Mercurial, http://mercurial.selenic.com/. If not familar with Mercurial, see http://hgbook.red-bean.com/read/.
 
-(the password is "android")
-
-Take the displayed fingerprint and [http://code.google.com/intl/pt-BR/android/maps-api-signup.html request a maps api key from Google]. Put the provided api key in mytracks_layout.xml, and *remember not to commit the key change back to the repository*.
-
-= Version control =
-
-== Overview ==
-
-My Tracks uses Mercurial, a distributed version control system. What this means is that, even though this page hosts a central repository, there can be many clone repositories with changes of their own, and then some of those can be merged back into the main repository.
-
-The model we've chosen for developing My Tracks is the following:
-  # Each developer creates an google code hosting clone of the main mytracks repository. This clone is hosted on Google servers.
-  # The developer then makes a local clone of his code hosting clone, which is then at his local machine.
-  # The developer writes new code into his local clone and commits it locally
-  # When a change is ready to be integrated back into the main repository, that change is pushed from the developer's local clone to his code hosting clone
-  # He then requests a code review by opening a new issue under "Issues" above, saying which clone has the code to be reviewed, what it's supposed to do, and what are the relevant changesets
-  # The code will be reviewed on the user's clone - if any further changes are suggested, the process repeats from (3)
-  # Once the change is approved, a member of the My Tracks team will merge it back into the main repository
-
-Even though this may sound complicated, this process makes code reviews easy and allows a lot of people to work on changes in parallel.
-
-Next is an overview of each step, but if you want to really learn mercurial, please look at the references at the bottom of this page.
-
-== Mercurial installation ==
-
-First, make sure you have Mercurial installed by running the command:
-
-{{{
-$ hg version
-Mercurial Distributed SCM (version 1.2)
-
-...
-}}}
-
-If you don't want your hostname and username to be made public, you can change how you're identified in commits you make by editing your ~/.hgrc file:
-
+For Mercurial, we recommend including your code.google.com username and password in .hgrc, so you don’t need to type them with each hg command. We also recommend including your username in .hgrc. E.g, in .hgrc, add the following:
 {{{
 [ui]
-username = John Doe
+username = Name <email>
+[auth]
+g.prefix = *
+g.username = XXX
+g.password = XXX
 }}}
 
-== Making a clone of the repository ==
+3. Create corresponding local repository
+  * hg clone http://code.google.com/r/jshih-mytracks1 jshih-mytracks1
+  * hg clone http://code.google.com/r/jshih-mytracks2/ jshih-mytracks2
+  * hg clone http://code.google.com/r/jshih-mytracks3/ jshih-mytracks3
 
-We'll need to create two clones of the main My Tracks repository - one online, and then a local clone of that one.
+4. Setup Android development with Eclipse
+  * See http://developer.android.com/sdk/index.html
 
-To create the online clone, click on "Source" above, then on "Create Clone". Give your clone a name, summary and description, then click on "Create repository clone". At that point the online clone is ready. 
+5. Make sure Java compiler is 1.6
+  * Windows -> Preferences -> Java -> Compiler -> 1.6
 
-*IMPORTANT*
-If you plan to have your code reviewed, then you also want to go into "Administer", "Source", and check "Allow non-members to review code".
+6. Make sure Android SDK is up-to-date
+  * Windows -> Android SDK Manager 
+  * Make sure the latest API level, the latest Tools, the latest Extras are installed. For Extras, definitely need “Google Play services” and “Google Maps Android API2”.
 
-To create the local clone, click on "Source" tab of your clone page, and then use the checkout command provided there:
+Note that currently My Tracks supports API level 8+ and is targeting API level 17.
 
-{{{
-hg clone https://rdamazio-mytracks.googlecode.com/hg/ rdamazio-mytracks
-}}}
+7. Create one eclipse workspace per local repository
+  * mkdir workspace-jshih-mytracks1
+  * mkdir workspace-jshih-mytracks2
+  * mkdir workspace-jshih-mytracks3
 
-Optionally, you can add your username and password to it (so you don't have to type them in every time):
+== One time setup for each local repository/workspace ==
 
-{{{
-hg clone https://rdamazio:mypassword@rdamazio-mytracks.googlecode.com/hg/ rdamazio-mytracks
-}}}
+1. File -> Switch Workspace.
+  * E.g, workspace-jshih-mytracks1.
+2. For each workspace, import four My Tracks projects.
+  * File->Import ->General->Existing Projects into Workspace
+  * Go to the local repository, jshih-mytracks1, and import
+    * !MyTracks
+    * !MyTracksLib
+    * !MyTracksTest
+    * google-play-services_lib
 
-and that's it - you have a local copy of your clone (in this example, in subdirectory "rdamazio-mytracks") which you can then make changes to.
+Note: Upon import, eclipse might complain that one of the projects is missing a “res” directory, just create the folder.
 
-== Bringing in new changes from the master repository ==
+ 
+3. For each workspace, add the following two variables.
+  * Windows -> Preferences -> Java -> Build Path -> Classpath Variable
+    * ANDROID_SDK - make this variable point to the Android SDK's root directory (the one inside which contains directories like platforms, platform-tools)
+    * MYTRACKS_BIN - make this variable point to the !MyTracks/bin directory in your local repository
 
-The recommended way of bringing changes in from the main repository is the use of "hg fetch":
+4. Optional. Update the map view v2 key to see the map tiles.
+  * See https://developers.google.com/maps/documentation/android/ for getting your key
+  * In AndroidManifest.xml, update the value for "com.google.android.maps.v2.API_KEY"
+  * Remember, don’t include your key if you are committing the changes back to main.
 
-{{{
-$ hg fetch http://mytracks.googlecode.com/hg/
-}}}
+= Daily Development =
 
-Please note that the fetch command is a Mercurial extension which is equivalent to "hg pull -u" plus "hg merge" plus "hg commit" - for more details please see the references, but this basically means that it will try to merge the incoming changes with your local changes.
+1. Sync the latest from main
+  * cd jshih-mytracks1 (change to your local repository)
+  * hg incoming http://code.google.com/p/mytracks
+  * hg pull -u http://code.google.com/p/mytracks
+  * hg merge (if necessary)
+  * hg commit -m “merge heads” (if necessary)
+  * Refresh all four My Tracks eclipse projects in workspace-jshih-mytracks1
 
-If you want to see what will be brought in with the above command before running it, you can use:
+2. Make changes in eclipse
 
-{{{
-$ hg incoming
-}}}
+3. Commit changes
+  * hg status
+  * hg add (add the necessary new files)
+  * hg remove (remove files)
+  * if renaming files, use hg rename so that we can keep the file history
+  * thg vdiff (use tortoiseHG visual diff, tkdiff) to review all your changes
+  * hg commit (Include a complete description of your change)
+  * hg outgoing
+  * hg push
 
-
-== Committing changes locally ==
-
-Commiting changes locally is easy - run "hg status" to see the state of your local clone:
-
-{{{
-$ hg status
-?  MyNewFile
-M  MyChangedFile
-!  MyDeletedFile
-}}}
-
-In the above example, it shows one file that it knows nothing about (MyNewFile), one that it knows about but is missing (MyDeletedFile) and one that has had changes made to it.
-
-To add all the previously unknown files and remove any missing files, use the addremove command:
-{{{
-$ hg addremove
-Adding MyNewFile
-Deleting MyDeletedFile
-}}}
-
-hg status then shows the new status:
-
-{{{
-$ hg status
-A  MyNewFile
-M  MyChangedFile
-D  MyDeletedFile
-}}}
-
-If you wish to see what has changed, you can use the "hg diff" command.
-Finally, you can commit the changes with
-
-{{{
-$ hg commit
-}}}
-
-which will open an editor for you to type in a description for these changes. Optionally, you can specify filenames to hg commit in order to commit only part of your current changes.
-
-*IMPORTANT*: When your change is pulled into the main My Tracks source, the change description that you entered here will show up as changes in the main mytracks source, so please use a meaninful description - "fixing bug", "making changes", etc. are not ok, please instead use something like "fixing GPX import bug caused by null pointer", "adding Russian translation", etc. so that it makes sense in the context of mytracks as a whole, not just your clone.
-
-== Pushing changes to your online clone ==
-
-Pushing changes to your online clone is incredibly simple:
-
-{{{
-$ hg push
-pushing to https://rdamazio:***@rdamazio-mytracks.googlecode.com/hg/
-searching for changes
-adding changesets
-adding manifests
-adding file changes
-added 1 changesets with 1 changes to 1 files
-}}}
-
-and you're done.
-
-If you want to see what changes you're going to push before you do it, you can also use the following command:
-
-{{{
-$ hg outgoing
-comparing with https://rdamazio:***@rdamazio-mytracks.googlecode.com/hg/
-searching for changes
-changeset:   5:b6fed4f21233
-tag:         tip
-user:        Rodrigo Damazio
-date:        Tue May 05 06:55:53 2009 +0000
-summary:     Added an extra line of output
-}}}
-
-== Requesting a code review ==
-
-To request a code review, go into the "Issues" tab of the My Tracks project, click new Issue, select template "Review request", fill out the fields from the template. Someone will then review the code changes and integrate them when ready. Please notice that if the code change is for an existing, open issue, there's no need to file a separate request for the code review - simply post the link to the relevant changes on that issue (and if you have permission to, change its state to "UnderReview").
-
-Please consult our [CodeReviewProcess] wiki for detailed instructions on a successful review.
-
-= Maintainer instructions =
-
-These are instructions for the My Tracks commiters who will be necessarily doing code reviews and integrating changes into the main repository.
-
-== Merging changes into the main repository ==
-
-Main repository maintainers should usually have a local clone of the main repository:
-
-{{{
-hg clone https://user%40google.com:password@mytracks.googlecode.com/hg/ mytracks
-}}}
-
-To integrate changes from a clone http://X.googlecode.com/hg/, first check what will be pulled, then pull them to your local clone:
-
-{{{
-$ hg incoming http://X.googlecode.com/hg/
-<list of diffs>
-$ hg pull -u http://X.googlecode.com/hg/
-pulling from http://X.googlecode.com/hg/
-searching for changes
-adding changesets
-adding manifests
-adding file changes
-added 1 changesets with 1 changes to 1 files
-}}}
-
-If you need to pull just specific revisions, you can do that with the -r flag:
-
-{{{
-$ hg pull -r7e95bb -u http://X.googlecode.com/hg/
-}}}
-
-If there are any conflicts, you'll need to fix them by using "hg merge" then "hg commit" (see the reference at the bottom of this page for details) - you can also use "hg fetch" which is equivalent to "hg pull -u" plus "hg merge" plus "hg commit" (when necessary).
-
-It is important to understand that this pulls revision "7e95bb" and ALL the other remote revisions that happened before that one - in other words, it "merges" up to that revision. If you need to pull a single revision from the middle of the repository, you want to use the "transplant" extension:
-
-{{{
-$ hg transplant -s http://X.googlecode.com/hg/ 7e95bb
-searching for changes
-applying 7e95bb
-}}}
-
-At this point, *test* the change - make sure it works for you as well as it did for the original author. Some things just can't be caught in code reviews.
-
-Once you know the change is ok, push it up to the main repository:
-{{{
-$ hg push
-}}}
-
-== Making releases ==
-
-Please see [ReleaseProcess].
-
-= References =
-
-[http://hgbook.red-bean.com/ Mercurial: The definitive guide]
+4. Merge changes back to main, http://code.google.com/p/mytracks
+  * File a review ticket
+    * In http://code.google.com/p/mytracks/issues/list
+    * “New issue” -> Template: Review request

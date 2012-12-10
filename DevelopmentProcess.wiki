@@ -18,9 +18,9 @@ We recommend creating several Mercurial clones, one for each change to be submit
   * At http://code.google.com/p/mytracks/source/checkout
   * At the bottom, click “Create a clone”.
 E.g., my user name is "jshih" and I created several clones as follows
-  * jshih-mytracks1 (http://code.google.com/r/jshih-mytracks1/)
-  * jshih-mytracks2 (http://code.google.com/r/jshih-mytracks2/)
-  * jshih-mytracks3 (http://code.google.com/r/jshih-mytracks3/)
+  * jshih-mytracks1 (https://code.google.com/r/jshih-mytracks1/)
+  * jshih-mytracks2 (https://code.google.com/r/jshih-mytracks2/)
+  * jshih-mytracks3 (https://code.google.com/r/jshih-mytracks3/)
 For each clone, allow non-members to review code.
   * In http://code.google.com/r/jshih-mytracks1/adminSource
   * Under “Code reviews’, check “Enable code review” and check “Allow non-members to review code”.
@@ -42,9 +42,9 @@ g.password = XXX
 }}}
 
 3. Create corresponding local repository
-  * hg clone http://code.google.com/r/jshih-mytracks1 jshih-mytracks1
-  * hg clone http://code.google.com/r/jshih-mytracks2/ jshih-mytracks2
-  * hg clone http://code.google.com/r/jshih-mytracks3/ jshih-mytracks3
+  * hg clone https://code.google.com/r/jshih-mytracks1 jshih-mytracks1
+  * hg clone https://code.google.com/r/jshih-mytracks2/ jshih-mytracks2
+  * hg clone https://code.google.com/r/jshih-mytracks3/ jshih-mytracks3
 
 4. Setup Android development with Eclipse
   * See http://developer.android.com/sdk/index.html
@@ -74,10 +74,6 @@ Note that currently My Tracks supports API level 8+ and is targeting API level 1
     * !MyTracksLib
     * !MyTracksTest
     * google-play-services_lib
-
-Note: Upon import, eclipse might complain that one of the projects is missing a “res” directory, just create the folder.
-
- 
 3. For each workspace, add the following two variables.
   * Windows -> Preferences -> Java -> Build Path -> Classpath Variable
     * ANDROID_SDK - make this variable point to the Android SDK's root directory (the one inside which contains directories like platforms, platform-tools)

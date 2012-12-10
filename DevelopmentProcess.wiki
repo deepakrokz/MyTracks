@@ -79,6 +79,8 @@ Note that currently My Tracks supports API level 8+ and is targeting API level 1
     * ANDROID_SDK - make this variable point to the Android SDK's root directory (the one inside which contains directories like platforms, platform-tools)
     * MYTRACKS_BIN - make this variable point to the !MyTracks/bin directory in your local repository
 
+Afterwards, try closing and reopening the !MyTracksTest project to resolve Eclipse problems.  
+
 4. Optional. Update the map view v2 key to see the map tiles.
   * See https://developers.google.com/maps/documentation/android/ for getting your key
   * In !AndroidManifest.xml, update the value for "com.google.android.maps.v2.API_KEY"

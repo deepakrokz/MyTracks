@@ -11,10 +11,9 @@
      * Use http://code.google.com/p/mytracks/issues/list
      * Before doing so, search through the existing issues to avoid duplication.
   * Programmers contributing to My Tracks
-     * Use the following discussion group mytracks-dev@googlegroups.com
-     * Let us know what you would like to change.
-     * Can start with DevelopmentProcess.
-
+     * Start with DevelopmentProcess
+     * Use mytracks-dev@googlegroups.com discussion group
+     * Before doing any work, email the discussion group to let us know which feature you would like to work on. If you like to help with the next release, we also have a list of tasks that need to be completed. Just email the discussion group.
 
 Sincerely, 
 the My Tracks team

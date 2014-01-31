@@ -1,7 +1,0 @@
-#summary Release notes
-
-Release Notes for My Tracks version 2.0.2
-  * ability to pause/resume the current recording track
-  * record/pause/resume/stop buttons on the bottom of each page
-  * new app widget with pause/resume support
-  * new code for recording track and calculating track statistics

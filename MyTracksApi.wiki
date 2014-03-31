@@ -1,5 +1,5 @@
 #summary MyTracks API allows third-party Android applications to access MyTracks data and start/stop a recording.
-#labels Featured,Phase-Implementation
+#labels Deprecated
 
 = Introduction =
 !MyTracks API consists of three mechanisms, content provider, service, and notifications, to allow third-party apps to access and control !MyTracks data.

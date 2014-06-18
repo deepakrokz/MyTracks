@@ -1,4 +1,5 @@
 #summary How to report errors
+#labels Deprecated
 = Introduction to Android System Log =
 
 If My Tracks fails in any way, it is important to capture the system log.  Every Android phone has a circular log of system events.  All applications can put messages in it. My Tracks logs important events like crashes in this log.  If you can capture your system log when My Tracks fails, it can help us improve the product.

@@ -1,5 +1,4 @@
 #summary How to make changes to My Tracks source and have them merged back.
-#labels Featured,Phase-Implementation
 
 = Overview =
 

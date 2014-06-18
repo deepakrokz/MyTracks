@@ -1,4 +1,5 @@
 #summary One-How to successfully submit code to My Tracks
+#labels Deprecated
 
 = My Tracks Code Review Process =
 

@@ -1,4 +1,5 @@
 #summary How to make changes to My Tracks source and have them merged back.
+#labels Deprecated
 
 = Overview =
 

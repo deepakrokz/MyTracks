@@ -2,3 +2,4 @@ google-play-services_lib/build
 MyTracks/build
 MyTracksLib/build
 build/intermediates
+.gradle/2.2.1

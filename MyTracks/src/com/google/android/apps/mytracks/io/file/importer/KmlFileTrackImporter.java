@@ -21,11 +21,13 @@ import com.google.android.apps.mytracks.content.MyTracksProviderUtils;
 import com.google.android.apps.mytracks.content.Sensor;
 import com.google.android.apps.mytracks.content.Sensor.SensorDataSet;
 import com.google.android.apps.mytracks.content.Waypoint.WaypointType;
+import com.google.android.apps.mytracks.settings.IntegerListPreference;
 import com.google.common.annotations.VisibleForTesting;
 
 import android.content.Context;
 import android.location.Location;
 import android.net.Uri;
+import android.util.Log;
 
 import java.util.ArrayList;
 
@@ -137,6 +139,20 @@ public class KmlFileTrackImporter extends AbstractFileTrackImporter {
     } else if (localName.equals(TAG_DESCRIPTION)) {
       if (content != null) {
         description = content.trim();
+
+        String lower = description.toLowerCase();
+        if (lower.contains("activity type")) {
+          String[] list = lower.split("\n");
+          for (String s : list) {
+            if (s.contains("total time")) {
+              String[] times = s.split(":", 2);
+              if (times.length > 1) {
+                this.SetTotalTime(times[1].trim());
+                Log.i("TODO-moko", "End: " + TAG_DESCRIPTION + " = " + content);
+              }
+            }
+          }
+        }
       }
     } else if (localName.equals(TAG_VALUE)) {
       if (content != null) {
@@ -302,7 +318,8 @@ public class KmlFileTrackImporter extends AbstractFileTrackImporter {
     }
     int value;
     try {
-      value = Integer.parseInt(content);
+      Double d = Double.parseDouble(content);
+      value = (int) Math.round(d);
     } catch (NumberFormatException e) {
       throw new SAXException(createErrorMessage("Unable to parse gx:value:" + content), e);
     }

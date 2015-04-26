@@ -114,6 +114,7 @@ abstract class AbstractFileTrackImporter extends DefaultHandler implements Track
 
   // The current track data
   private TrackData trackData;
+  private long trackTotalTime;
 
   // The SAX locator to get the current line information
   private Locator locator;
@@ -150,6 +151,8 @@ abstract class AbstractFileTrackImporter extends DefaultHandler implements Track
         context, R.string.weight_key, PreferencesUtils.getDefaultWeight(context));
     trackIds = new ArrayList<Long>();
     waypoints = new ArrayList<Waypoint>();
+
+    this.trackTotalTime = 0;
   }
 
   @Override
@@ -225,7 +228,15 @@ abstract class AbstractFileTrackImporter extends DefaultHandler implements Track
         track.getTripStatistics().getStartTime());
     LocationIterator locationIterator = null;
     ActivityType activityType = CalorieUtils.getActivityType(context, track.getCategory());
-    
+
+    if (this.trackTotalTime > 0) {
+      Log.i(TAG, "Total Stat Time: " + this.trackTotalTime);
+      TripStatistics stat =  track.getTripStatistics();
+      stat.setTotalTime(this.trackTotalTime);
+      track.setTripStatistics(stat);
+      myTracksProviderUtils.updateTrack(track);
+    }
+
     try {
       locationIterator = myTracksProviderUtils.getTrackPointLocationIterator(
           track.getId(), -1L, false, MyTracksProviderUtils.DEFAULT_LOCATION_FACTORY);
@@ -345,7 +356,10 @@ abstract class AbstractFileTrackImporter extends DefaultHandler implements Track
       trackData.tripStatisticsUpdater = new TripStatisticsUpdater(trackData.importTime);
       trackData.tripStatisticsUpdater.updateTime(trackData.importTime);
     }
-    trackData.track.setTripStatistics(trackData.tripStatisticsUpdater.getTripStatistics());
+
+    TripStatistics stat = trackData.tripStatisticsUpdater.getTripStatistics();
+    trackData.track.setTripStatistics(stat);
+
     trackData.track.setNumberOfPoints(trackData.numberOfLocations);
     myTracksProviderUtils.updateTrack(trackData.track);
     insertFirstWaypoint(trackData.track);
@@ -626,5 +640,19 @@ abstract class AbstractFileTrackImporter extends DefaultHandler implements Track
     for (long trackId : trackIds) {
       myTracksProviderUtils.deleteTrack(context, trackId);
     }
+  }
+
+  protected void SetTotalTime(String time) {
+    trackTotalTime = 0;
+
+    String[] times = time.split(":");
+    int count = 0;
+    for (int i = times.length-1; i >= 0; --i, ++count) {
+      int v = Integer.parseInt(times[i]);
+      int mag = 60 * count;
+      trackTotalTime += v * (mag > 0 ? mag : 1);
+    }
+
+    trackTotalTime *= 1000;
   }
 }

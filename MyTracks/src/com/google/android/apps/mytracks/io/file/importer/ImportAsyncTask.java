@@ -174,6 +174,7 @@ public class ImportAsyncTask extends AsyncTask<Void, Integer, Boolean> {
    * @param file the file
    */
   private boolean importFile(final File file) {
+    Log.i(TAG, "Importing File: " + file.getName());
     FileInputStream fileInputStream = null;
     try {
       TrackImporter trackImporter;

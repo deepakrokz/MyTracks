@@ -314,6 +314,8 @@ public class TrackListActivity extends AbstractSendToGoogleActivity
   private MenuItem exportAllMenuItem;
   private MenuItem importAllMenuItem;
   private MenuItem deleteAllMenuItem;
+  private MenuItem exportAllSheetMenuItem;
+
 
   private boolean startGps = false; // true to start gps
   private boolean startNewRecording = false; // true to start a new recording
@@ -479,6 +481,7 @@ public class TrackListActivity extends AbstractSendToGoogleActivity
     exportAllMenuItem = menu.findItem(R.id.track_list_export_all);
     importAllMenuItem = menu.findItem(R.id.track_list_import_all);
     deleteAllMenuItem = menu.findItem(R.id.track_list_delete_all);
+    exportAllSheetMenuItem = menu.findItem(R.id.track_list_export_all_sheet);
 
     return super.onCreateOptionsMenu(menu);
   }
@@ -555,6 +558,9 @@ public class TrackListActivity extends AbstractSendToGoogleActivity
         FileTypeDialogFragment.newInstance(R.id.track_list_export_all,
             R.string.export_all_title, R.string.export_all_option, 4)
             .show(getSupportFragmentManager(), FileTypeDialogFragment.FILE_TYPE_DIALOG_TAG);
+        return true;
+      case R.id.track_list_export_all_sheet:
+        exportAllTracks();
         return true;
       case R.id.track_list_import_all:
         FileTypeDialogFragment.newInstance(R.id.track_list_import_all,
@@ -732,6 +738,9 @@ public class TrackListActivity extends AbstractSendToGoogleActivity
     if (deleteAllMenuItem != null) {
       deleteAllMenuItem.setVisible(hasTrack && !isRecording);
     }
+    if (exportAllSheetMenuItem != null) {
+      exportAllSheetMenuItem.setVisible(hasTrack && !isRecording);
+    }
   }
   
   /**
@@ -809,6 +818,34 @@ public class TrackListActivity extends AbstractSendToGoogleActivity
       String googleAccount = PreferencesUtils.getString(
           this, R.string.google_account_key, PreferencesUtils.GOOGLE_ACCOUNT_DEFAULT);
       enableSync(new Account(googleAccount, Constants.ACCOUNT_TYPE));
+    }
+  }
+
+  private Boolean exportAllTracks() {
+    Cursor cursor = null;
+    try {
+      cursor = myTracksProviderUtils.getTrackCursor(null, null, TracksColumns._ID);
+      if (cursor == null) {
+        return false;
+      }
+      int totalCount = cursor.getCount();
+      for (int i = 0; i < totalCount; i++) {
+        cursor.moveToPosition(i);
+        Track track = myTracksProviderUtils.createTrack(cursor);
+
+        Log.i("TODO-moko", "Exporting Track: " + track.getId() + " -> " + track.getName());
+        /*
+        if (track != null && saveTracks(new Track[] { track })) {
+          successCount++;
+        }
+        publishProgress(i + 1, totalCount);
+        */
+      }
+      return true;
+    } finally {
+      if (cursor != null) {
+        cursor.close();
+      }
     }
   }
 }

@@ -3037,4 +3037,14 @@ limitations under the License.
       completion suggestion for a waypoint.">
     waypoint
   </string>
+    <string name="export_all_title_sheet"
+            translation_description="The dialog title to export all tracks to the google sheet.">
+    Export to Google Sheet
+  </string>
+    <string name="menu_export_all_sheet"
+            translation_description="In the menu, to export all tracks to sheet.
+
+      Character limit: ~20 (1 line)">
+    Export all Sheet
+  </string>
 </resources>

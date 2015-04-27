@@ -5,9 +5,16 @@ dependencies {
 }
 
 android {
+    signingConfigs {
+        mo {
+            keyAlias 'mo'
+            keyPassword '123456'
+            storeFile file('/Users/maurice/dev/github/_external/mytracks/keystore.jks')
+            storePassword '123456'
+        }
+    }
     compileSdkVersion 21
     buildToolsVersion '21.1.2'
-
     sourceSets {
         main {
             manifest.srcFile 'AndroidManifest.xml'
@@ -34,5 +41,13 @@ android {
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_7
         targetCompatibility JavaVersion.VERSION_1_7
+    }
+    buildTypes {
+        debug {
+            signingConfig signingConfigs.mo
+        }
+        release {
+            signingConfig signingConfigs.mo
+        }
     }
 }

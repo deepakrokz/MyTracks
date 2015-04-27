@@ -649,8 +649,8 @@ abstract class AbstractFileTrackImporter extends DefaultHandler implements Track
     int count = 0;
     for (int i = times.length-1; i >= 0; --i, ++count) {
       int v = Integer.parseInt(times[i]);
-      int mag = 60 * count;
-      trackTotalTime += v * (mag > 0 ? mag : 1);
+      int mag = (int)Math.pow(60, count);
+      trackTotalTime += v * mag;
     }
 
     trackTotalTime *= 1000;
